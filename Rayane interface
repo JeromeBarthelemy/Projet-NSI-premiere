@@ -10,3 +10,30 @@ pygame.display.set_caption("Menu jeu")
 #Chargement et collage du fond
 fond = pygame.image.load("1.png").convert()
 fenetre.blit(fond, (0,0))
+#Chargement et collage du bouton_1
+Bouton1 = pygame.image.load("1.png").convert_alpha()
+Bouton1_pos = (540, 250)
+fenetre.blit(Bouton1, Bouton1_pos)
+
+
+
+
+
+
+
+
+
+
+
+
+continuer = 1
+
+
+while continuer:
+    for event in pygame.event.get():    #Attente des événements
+        if event.type == QUIT:
+            continuer = 0
+
+
+    #Rafraichissement
+    pygame.display.flip()
