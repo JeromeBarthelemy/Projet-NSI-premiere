@@ -40,3 +40,9 @@ class Game():
 
     def reset_keys(self):
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
+        
+g= Game()
+
+while g.running:
+    g.playing = True
+    g.game_loop()    
