@@ -1,0 +1,7 @@
+import pygame
+from pygame.locals import *
+#on réinitialise pygame
+pygame.init()
+
+#Ouverture de la fenêtre Pygame
+fenetre = pygame.display.set_mode((1080, 720))
