@@ -1,4 +1,7 @@
 import pygame
+
+from pygame.locals import
+
 pygame.init()
 
 #Ouverture de la fenêtre Pygame
