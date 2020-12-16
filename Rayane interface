@@ -10,7 +10,7 @@ pygame.display.set_caption("Menu jeu")
 #Chargement et collage du fond
 fond = pygame.image.load("1.png").convert()
 fenetre.blit(fond, (0,0))
-#Chargement et collage du bouton_1
+#Chargement et collage du bouton1
 Bouton1 = pygame.image.load("1.png").convert_alpha()
 Bouton1_pos = (540, 250)
 fenetre.blit(Bouton1, Bouton1_pos)
