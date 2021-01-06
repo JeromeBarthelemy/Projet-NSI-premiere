@@ -1,0 +1,35 @@
+#Importation des bibliothèques nécessaires
+import pygame
+import pygame_menu
+from pygame.locals import *
+from pygame_menu import sound
+
+#Initialisation de la bibliothèque Pygame
+pygame.init()
+
+#Création de la fenêtre
+surface = pygame.display.set_mode((1200,800))
+
+#Variable qui continue la boucle si = True, stoppe si = False
+boucle_menu = True
+boucle_jeu = False
+
+def start_the_game(boucle_jeu):
+    print("b")
+    boucle_jeu = True
+
+    
+#Boucle infinie menu
+while not (boucle_jeu):
+    menu = pygame_menu.Menu(800, 1200, 'ONLIFE',theme=pygame_menu.themes.THEME_BLUE)
+    menu.add_text_input('Entrer un nom :', input='nom')
+    menu.add_button('Jouer', start_the_game,boucle_jeu)
+    menu.add_button('Quitter', pygame_menu.events.EXIT)
+    menu.mainloop(surface)
+    
+#Boucle infinie jeu
+while boucle_jeu:
+    print("a")
+    for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
+        if event.type == QUIT:     #Si un de ces événements est de type QUIT
+            continuer = 0      #On arrête la boucle
