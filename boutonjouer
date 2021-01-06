@@ -28,7 +28,8 @@ color_dark = (100,100,100)
 smallfont = pygame.font.SysFont('Corbel',35)
 
 # texte
-text = smallfont.render('Jouer' , True , color)
+jouer = smallfont.render('Jouer' , True , color)
+quitter = smallfont.render('Quitter' , True , color)
 
 #Variable qui continue la boucle si = True, stoppe si = False
 fin = False
@@ -43,24 +44,37 @@ while not fin:
             fin = True      #On arrête la boucle
         #verifie si la souris est cliquee
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if 700 <= mouse[0] <= 700+200 and 300 <= mouse[1] <= 300+50:
+            if 700 <= mouse[0] <= 700+200 and 400 <= mouse[1] <= 400+50:
                 # changement de display
                 pygame.display.update()
                 pygame.init()
                 ecran=pygame.display.set_mode((1200,800))
+                # bouton quitter
+            if 700 <= mouse[0] <= 700+200 and 500 <= mouse[1] <= 500+50:
+                pygame.quit()
 
     # Position de la souris
     mouse = pygame.mouse.get_pos()
 
     # changement de couleur
-    if 700 <= mouse[0] <= 700+200 and 300 <= mouse[1] <= 300+50:
-        pygame.draw.rect(fenetre,color_light,[700,300,200,50])
+    if 700 <= mouse[0] <= 700+200 and 400 <= mouse[1] <= 400+50:
+        pygame.draw.rect(fenetre,color_light,[700,400,200,50])
 
     else:
-        pygame.draw.rect(fenetre,color_dark,[700,300,200,50])
+        pygame.draw.rect(fenetre,color_dark,[700,400,200,50])
 
-    # texte sur bouton par superposition
-    fenetre.blit(text , (700+60,310))
+    # changement de couleur
+    if 700 <= mouse[0] <= 700+200 and 500 <= mouse[1] <= 500+50:
+        pygame.draw.rect(fenetre,color_light,[700,500,200,50])
+
+    else:
+        pygame.draw.rect(fenetre,color_dark,[700,500,200,50])
+
+    # texte jouer sur bouton par superposition
+    fenetre.blit(jouer , (760,410))
+
+    # texte quitter sur bouton par superposition
+    fenetre.blit(quitter , (750,510))
 
     # updates the frames of the game
     pygame.display.update()
