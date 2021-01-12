@@ -34,7 +34,7 @@ education = smallfont.render('Education' , True , color)
 propriete = smallfont.render('Propriete' , True , color)
 bienetre = smallfont.render('Bien-etre' , True , color)
 quitter = smallfont.render('Quitter' , True , color)
-annee = smallfont.render('Annee' , True , color)
+annee = smallfont.render('+ une annee' , True , color)
 
 #Variable qui continue la boucle si = True, stoppe si = False
 fin = False
@@ -100,7 +100,7 @@ while not fin:
     fenetre.blit(age , (110,150))
 
     # texte sur bouton par superposition
-    fenetre.blit(annee , (575,410))
+    fenetre.blit(annee , (540,410))
     fenetre.blit(education , (933,260))
     fenetre.blit(propriete , (937,360))
     fenetre.blit(bienetre , (937,460))
