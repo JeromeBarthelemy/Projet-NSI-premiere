@@ -43,73 +43,68 @@ fin = False
 while not fin:
     pygame.draw.rect(fenetre, (255,204,204), pygame.Rect(50, 50, width-100, height-100))
     perso = pygame.image.load("bebe.png").convert_alpha()
-    fenetre.blit(perso, (75,130))
+    fenetre.blit(perso, (1,200))
     for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
         if event.type == QUIT:     #Si un de ces événements est de type QUIT
             fin = True      #On arrête la boucle
         #verifie si la souris est cliquee
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if 225 <= mouse[0] <= 225+200 and 675 <= mouse[1] <= 675+50:
+            if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
                 print("e")
-            if 700 <= mouse[0] <= 700+200 and 250 <= mouse[1] <= 250+50:
+            if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
                 print("a")
-            if 700 <= mouse[0] <= 700+200 and 350 <= mouse[1] <= 350+50:
+            if 900 <= mouse[0] <= 900+200 and 350 <= mouse[1] <= 350+50:
                 print("b")
-            if 700 <= mouse[0] <= 700+200 and 450 <= mouse[1] <= 450+50:
+            if 900 <= mouse[0] <= 900+200 and 450 <= mouse[1] <= 450+50:
                 print("c")
             # bouton quitter
-            if 700 <= mouse[0] <= 700+200 and 550 <= mouse[1] <= 550+50:
+            if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
                 pygame.quit()
 
     # Position de la souris
     mouse = pygame.mouse.get_pos()
 
     # bouton etudes et metiers
-    if 700 <= mouse[0] <= 700+200 and 250 <= mouse[1] <= 250+50:
-        pygame.draw.rect(fenetre,color_light,[700,250,200,50])
-
+    if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
+        pygame.draw.rect(fenetre,color_light,[900,250,200,50])
     else:
-        pygame.draw.rect(fenetre,color_dark,[700,250,200,50])
+        pygame.draw.rect(fenetre,color_dark,[900,250,200,50])
 
     # bouton propriete
-    if 700 <= mouse[0] <= 700+200 and 350 <= mouse[1] <= 350+50:
-        pygame.draw.rect(fenetre,color_light,[700,350,200,50])
-
+    if 900 <= mouse[0] <= 900+200 and 350 <= mouse[1] <= 350+50:
+        pygame.draw.rect(fenetre,color_light,[900,350,200,50])
     else:
-        pygame.draw.rect(fenetre,color_dark,[700,350,200,50])
+        pygame.draw.rect(fenetre,color_dark,[900,350,200,50])
 
     # bouton bien etre
-    if 700 <= mouse[0] <= 700+200 and 450 <= mouse[1] <= 450+50:
-        pygame.draw.rect(fenetre,color_light,[700,450,200,50])
-
+    if 900 <= mouse[0] <= 900+200 and 450 <= mouse[1] <= 450+50:
+        pygame.draw.rect(fenetre,color_light,[900,450,200,50])
     else:
-        pygame.draw.rect(fenetre,color_dark,[700,450,200,50])
+        pygame.draw.rect(fenetre,color_dark,[900,450,200,50])
 
     # bouton quitter
-    if 700 <= mouse[0] <= 700+200 and 550 <= mouse[1] <= 550+50:
-        pygame.draw.rect(fenetre,color_light,[700,550,200,50])
-
+    if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
+        pygame.draw.rect(fenetre,color_light,[900,550,200,50])
     else:
-        pygame.draw.rect(fenetre,color_dark,[700,550,200,50])
+        pygame.draw.rect(fenetre,color_dark,[900,550,200,50])
 
     # bouton annee
-    if 225 <= mouse[0] <= 225+200 and 675 <= mouse[1] <= 675+50:
-        pygame.draw.rect(fenetre,color_light,[225,675,200,50])
-
+    if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
+        pygame.draw.rect(fenetre,color_light,[525,400,200,50])
     else:
-        pygame.draw.rect(fenetre,color_dark,[225,675,200,50])
+        pygame.draw.rect(fenetre,color_dark,[525,400,200,50])
 
     # identite sur rectangle par superposition
-    pygame.draw.rect(fenetre,color_dark,[650,100,300,100])
-    fenetre.blit(nom , (670,110))
-    fenetre.blit(age , (670,150))
+    pygame.draw.rect(fenetre,color_dark,[100,100,300,100])
+    fenetre.blit(nom , (110,110))
+    fenetre.blit(age , (110,150))
 
     # texte sur bouton par superposition
-    fenetre.blit(annee , (275,685))
-    fenetre.blit(education , (733,260))
-    fenetre.blit(propriete , (737,360))
-    fenetre.blit(bienetre , (737,460))
-    fenetre.blit(quitter , (750,560))
+    fenetre.blit(annee , (575,410))
+    fenetre.blit(education , (933,260))
+    fenetre.blit(propriete , (937,360))
+    fenetre.blit(bienetre , (937,460))
+    fenetre.blit(quitter , (950,560))
 
     # updates the frames of the game
     pygame.display.update()
