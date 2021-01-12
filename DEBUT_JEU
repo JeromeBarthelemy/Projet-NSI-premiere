@@ -1,0 +1,161 @@
+import pygame
+surfaceW = 800
+surfaceH = 600
+
+class Menu :
+    def __init__(self, application, *groupes) :
+        self.couleurs = dict(
+            normal=(255, 255, 255),
+            survol=(150, 100, 200),
+        )
+        font = pygame.font.SysFont('black', 50, bold=True)
+
+        # noms des menus et commandes associées
+        items = (
+            ('JOUER', application.jeu),
+            ('QUITTER', application.quitter)
+        )
+        x = 400
+        y = 200
+        self._boutons = []
+        for texte, cmd in items :
+            mb = MenuBouton(
+                texte,
+                self.couleurs['normal'],
+                font,
+                x,
+                y,
+                200,
+                50,
+                cmd
+            )
+            self._boutons.append(mb)
+            y += 120
+            for groupe in groupes :
+                groupe.add(mb)
+
+    def update(self, events) :
+        clicGauche, *_ = pygame.mouse.get_pressed()
+        posPointeur = pygame.mouse.get_pos()
+        for bouton in self._boutons :
+            # Si le pointeur souris est au-dessus d'un bouton
+            if bouton.rect.collidepoint(*posPointeur) :
+                pygame.mouse.set_cursor(*pygame.cursors.tri_left)
+                bouton.dessiner(self.couleurs['survol'])
+                if clicGauche :
+                    bouton.executerCommande()
+                break
+            else :
+                bouton.dessiner(self.couleurs['normal'])
+        else :
+            pygame.mouse.set_cursor(*pygame.cursors.arrow)
+
+    def detruire(self) :
+        pygame.mouse.set_cursor(*pygame.cursors.arrow)
+
+
+
+class MenuBouton(pygame.sprite.Sprite) :
+    """ Création d'un simple bouton rectangulaire """
+    def __init__(self, texte, couleur, font, x, y, largeur, hauteur, commande) :
+        super().__init__()
+        self._commande = commande
+        self.image = pygame.Surface((largeur, hauteur))
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y)
+        self.texte = font.render(texte, True, (0, 0, 0))
+        self.rectTexte = self.texte.get_rect()
+        self.rectTexte.center = (largeur/2, hauteur/2)
+        self.dessiner(couleur)
+
+    def dessiner(self, couleur) :
+        self.image.fill(couleur)
+        self.image.blit(self.texte, self.rectTexte)
+    def executerCommande(self) :
+        self._commande()
+
+
+class Jeu :
+    def __init__(self, jeu, *groupes) :
+        self._fenetre = jeu.fenetre
+        jeu.fond = (0, 0, 0)
+        from itertools import cycle
+        couleurs = [(0, 48, i) for i in range(0, 256, 15)]
+        couleurs.extend(sorted(couleurs[1:-1], reverse=True))
+        self._couleurTexte = cycle(couleurs)
+        self._font = pygame.font.SysFont('Helvetica', 36, bold=True)
+        self.creerTexte()
+        self.rectTexte = self.texte.get_rect()
+        self.rectTexte.center = (surfaceW/2, surfaceH/2)
+        self._CLIGNOTER = pygame.USEREVENT + 1
+        pygame.time.set_timer(self._CLIGNOTER, 80)
+    def creerTexte(self) :
+        self.texte = self._font.render(
+            'EN COURS D\'EXÉCUTION',
+            True,
+            next(self._couleurTexte)
+        )
+    def update(self, events) :
+        self._fenetre.blit(self.texte, self.rectTexte)
+        for event in events :
+            if event.type == self._CLIGNOTER :
+                self.creerTexte()
+                break
+    def detruire(self) :
+        pygame.time.set_timer(self._CLIGNOTER, 0)
+
+
+class Application :
+    def __init__(self) :
+        pygame.init()
+        pygame.display.set_caption("TEST MENU")
+
+        self.fond = (0,)*3
+
+        self.fenetre = pygame.display.set_mode((surfaceW,surfaceH))
+        self.groupeGlobal = pygame.sprite.Group()
+        self.statut = True
+
+    def _initialiser(self) :
+        try:
+            self.ecran.detruire()
+            self.groupeGlobal.empty()
+        except AttributeError:
+            pass
+
+    def menu(self) :
+        self._initialiser()
+        self.ecran = Menu(self, self.groupeGlobal)
+
+    def jeu(self) :
+        self._initialiser()
+        self.ecran = Jeu(self, self.groupeGlobal)
+
+    def quitter(self) :
+        self.statut = False
+
+    def update(self) :
+        events = pygame.event.get()
+
+        for event in events :
+            if event.type == pygame.QUIT :
+                self.quitter()
+                return
+
+        self.fenetre.fill(self.fond)
+        self.ecran.update(events)
+        self.groupeGlobal.update()
+        self.groupeGlobal.draw(self.fenetre)
+        pygame.display.update()
+
+
+app = Application()
+app.menu()
+
+clock = pygame.time.Clock()
+
+while app.statut :
+    app.update()
+    clock.tick(30)
+
+pygame.quit()
