@@ -68,14 +68,14 @@ while not fin:
                     fenetreedu.fill(background_colour)
                     mouse = pygame.mouse.get_pos()
                     if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
-                        pygame.draw.rect(fenetre,color_light,[525,400,200,50])
+                        pygame.draw.rect(fenetreedu,color_light,[525,400,200,50])
                     else:
-                        pygame.draw.rect(fenetre,color_dark,[525,400,200,50])
-                            
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
-                            pygame.display.update()
-                            edu=False
+                        pygame.draw.rect(fenetreedu,color_dark,[525,400,200,50])
+                    for event in pygame.event.get():
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                            if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
+                                pygame.display.update()
+                                edu=False
                                 
             if 900 <= mouse[0] <= 900+200 and 350 <= mouse[1] <= 350+50:
                 prop=True
