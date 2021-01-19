@@ -39,7 +39,8 @@ education = smallfont.render('Education' , True , color)
 propriete = smallfont.render('Propriete' , True , color)
 bienetre = smallfont.render('Bien-etre' , True , color)
 quitter = smallfont.render('Quitter' , True , color)
-annee = smallfont.render('+ une annee' , True , color)
+plus = smallfont.render('+' , True , color)
+annee = smallfont.render('une annee' , True , color)
 retour = smallfont.render('retour' , True , color)
 
 #Variable qui continue la boucle si = True, stoppe si = False
@@ -59,13 +60,13 @@ while not fin:
     for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
         if event.type == QUIT:     #Si un de ces événements est de type QUIT
             fin = True      #On arrête la boucle
+            pygame.display.quit()
         #verifie si la souris est cliquee
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
+            if 525 <= mouse[0] <= 525+200 and 350 <= mouse[1] <= 350+100:
                 variableage = variableage+1
                 age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
-                print(variableage)
-            
+
             # ouverture page education
             if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
                 edu=True
@@ -84,8 +85,8 @@ while not fin:
                             if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
                                 pygame.display.update()
                                 edu=False
-            
-            # ouverture page propriete                 
+
+            # ouverture page propriete
             if 900 <= mouse[0] <= 900+200 and 350 <= mouse[1] <= 350+50:
                 prop=True
                 while prop:
@@ -103,7 +104,7 @@ while not fin:
                             if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
                                 pygame.display.update()
                                 prop=False
-            
+
             # ouverture page bien-etre
             if 900 <= mouse[0] <= 900+200 and 450 <= mouse[1] <= 450+50:
                 bien=True
@@ -152,10 +153,10 @@ while not fin:
         pygame.draw.rect(fenetre,color_dark,[900,550,200,50])
 
     # bouton annee
-    if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
-        pygame.draw.rect(fenetre,color_light,[525,400,200,50])
+    if 525 <= mouse[0] <= 525+200 and 350 <= mouse[1] <= 350+100:
+        pygame.draw.rect(fenetre,color_light,[525,350,200,100])
     else:
-        pygame.draw.rect(fenetre,color_dark,[525,400,200,50])
+        pygame.draw.rect(fenetre,color_dark,[525,350,200,100])
 
     # identite sur rectangle par superposition
     pygame.draw.rect(fenetre,color_dark,[100,100,300,100])
@@ -163,7 +164,8 @@ while not fin:
     fenetre.blit(age , (105,145))
 
     # texte sur bouton par superposition
-    fenetre.blit(annee , (533,400))
+    fenetre.blit(plus , (615,350))
+    fenetre.blit(annee , (546,390))
     fenetre.blit(education , (923,250))
     fenetre.blit(propriete , (925,350))
     fenetre.blit(bienetre , (922,450))
