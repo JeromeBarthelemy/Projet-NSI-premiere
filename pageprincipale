@@ -14,7 +14,7 @@ fenetre = pygame.display.set_mode((width,height))
 fenetre.fill(background_colour)
 
 #variable de l'age
-variableage= 0
+variableage = 0
 
 # couleur texte
 color = (255,255,255)
@@ -39,33 +39,62 @@ annee = smallfont.render('+ une annee' , True , color)
 
 #Variable qui continue la boucle si = True, stoppe si = False
 fin = False
+edu=False
+prop=False
+bien=False
+
 
 #Boucle infinie
 while not fin:
     pygame.draw.rect(fenetre, (255,204,204), pygame.Rect(50, 50, width-100, height-100))
     perso = pygame.image.load("bebe.png").convert_alpha()
     fenetre.blit(perso, (1,200))
+    # Position de la souris
+    mouse = pygame.mouse.get_pos()
     for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
         if event.type == QUIT:     #Si un de ces événements est de type QUIT
             fin = True      #On arrête la boucle
         #verifie si la souris est cliquee
         if event.type == pygame.MOUSEBUTTONDOWN:
             if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
-                print("e")
+                variableage = variableage+1
+                pygame.display.update()
+                print(variableage)
             if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
-                print("a")
+                edu=True
+                while edu:
+                    pygame.display.update()
+                    fenetreedu = pygame.display.set_mode((width,height))
+                    fenetreedu.fill(background_colour)
+                    mouse = pygame.mouse.get_pos()
+                    if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
+                        pygame.draw.rect(fenetre,color_light,[525,400,200,50])
+                    else:
+                        pygame.draw.rect(fenetre,color_dark,[525,400,200,50])
+                            
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
+                            pygame.display.update()
+                            edu=False
+                                
             if 900 <= mouse[0] <= 900+200 and 350 <= mouse[1] <= 350+50:
-                print("b")
+                prop=True
+                while prop:
+                    pygame.display.update()
+                    fenetreprop = pygame.display.set_mode((width,height))
+                    fenetreprop.fill(background_colour)
             if 900 <= mouse[0] <= 900+200 and 450 <= mouse[1] <= 450+50:
-                print("c")
+                bien=True
+                while bien:
+                    pygame.display.update()
+                    fenetrebien = pygame.display.set_mode((width,height))
+                    fenetrebien.fill(background_colour)
             # bouton quitter
             if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
                 pygame.quit()
 
-    # Position de la souris
-    mouse = pygame.mouse.get_pos()
 
-    # bouton etudes et metiers
+    # bouton education
     if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
         pygame.draw.rect(fenetre,color_light,[900,250,200,50])
     else:
@@ -109,3 +138,4 @@ while not fin:
 
     # updates the frames of the game
     pygame.display.update()
+    pygame.display.flip()
