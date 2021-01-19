@@ -58,8 +58,11 @@ while not fin:
         if event.type == pygame.MOUSEBUTTONDOWN:
             if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
                 variableage = variableage+1
+                age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
                 pygame.display.update()
                 print(variableage)
+            
+            # ouverture page education
             if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
                 edu=True
                 while edu:
@@ -76,19 +79,42 @@ while not fin:
                             if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
                                 pygame.display.update()
                                 edu=False
-                                
+            
+            # ouverture page propriete                 
             if 900 <= mouse[0] <= 900+200 and 350 <= mouse[1] <= 350+50:
                 prop=True
                 while prop:
                     pygame.display.update()
                     fenetreprop = pygame.display.set_mode((width,height))
                     fenetreprop.fill(background_colour)
+                    mouse = pygame.mouse.get_pos()
+                    if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
+                        pygame.draw.rect(fenetreprop,color_light,[525,400,200,50])
+                    else:
+                        pygame.draw.rect(fenetreprop,color_dark,[525,400,200,50])
+                    for event in pygame.event.get():
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                            if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
+                                pygame.display.update()
+                                prop=False
+            
+            # ouverture page bien-etre
             if 900 <= mouse[0] <= 900+200 and 450 <= mouse[1] <= 450+50:
                 bien=True
                 while bien:
                     pygame.display.update()
                     fenetrebien = pygame.display.set_mode((width,height))
                     fenetrebien.fill(background_colour)
+                    mouse = pygame.mouse.get_pos()
+                    if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
+                        pygame.draw.rect(fenetrebien,color_light,[525,400,200,50])
+                    else:
+                        pygame.draw.rect(fenetrebien,color_dark,[525,400,200,50])
+                    for event in pygame.event.get():
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                            if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+50:
+                                pygame.display.update()
+                                bien=False
             # bouton quitter
             if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
                 pygame.quit()
