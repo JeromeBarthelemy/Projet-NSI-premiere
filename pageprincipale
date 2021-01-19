@@ -8,7 +8,6 @@ from pygame.locals import *
 
 #Initialisation de la bibliothèque Pygame
 pygame.init()
-gamename = pygame.display.set_caption("Onlife")
 
 #Création de la fenêtre
 width = 1200
@@ -16,6 +15,9 @@ height = 800
 background_colour = (255,153,153)
 fenetre = pygame.display.set_mode((width,height))
 fenetre.fill(background_colour)
+gamename = pygame.display.set_caption("Onlife")
+icon = pygame.image.load('icon.png').convert_alpha()
+gameicon = pygame.display.set_icon(icon)
 
 #variable de l'age
 variableage = 0
