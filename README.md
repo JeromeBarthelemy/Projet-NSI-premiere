@@ -5,7 +5,8 @@ Application du type "jeu de role" ou l'utilisateur se met dans la peau d'un pers
 <br>Trello pour s'organiser: https://trello.com/b/nQkLOTQe
 
 ### Professeur:
-ouvrir page principale. Pour l'instant il est possible d'appuyer sur les boutons bien être, études et prpiétés qui vous ouvrirons, chacuns, une autre fenêtre (qu'il nous faut encore personnaliser). Il sera possible de fermer ces fenêtres avec le bouton au milieu.
+ouvrir page principale. Pour l'instant il est possible d'appuyer sur les boutons bien être, études et prpiétés qui vous ouvrirons, chacuns, une autre fenêtre (qu'il nous faut encore personnaliser), il sera possible de fermer ces fenêtres avec le bouton au milieu.
+
 ### Membres:
 <br>Aurelie Gallet
 <br>Clara Cuoghi
