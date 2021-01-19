@@ -1,8 +1,6 @@
 #Importation des bibliothèques nécessaires
 import pygame
-import pygame_menu
 from pygame.locals import *
-from pygame_menu import sound
 
 #Initialisation de la bibliothèque Pygame
 pygame.init()
@@ -15,6 +13,9 @@ background_colour = (255,153,153)
 fenetre = pygame.display.set_mode((width,height))
 fenetre.fill(background_colour)
 
+#variable de l'age
+variableage= 0
+
 # couleur texte
 color = (255,255,255)
 
@@ -25,11 +26,11 @@ color_light = (170,170,170)
 color_dark = (100,100,100)
 
 # police
-smallfont = pygame.font.SysFont('Corbel',35)
+smallfont = pygame.font.SysFont('comicsansms',35)
 
 # texte
 nom = smallfont.render('Nom:' , True , color)
-age = smallfont.render('Age:' , True , color)
+age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
 education = smallfont.render('Education' , True , color)
 propriete = smallfont.render('Propriete' , True , color)
 bienetre = smallfont.render('Bien-etre' , True , color)
@@ -96,15 +97,15 @@ while not fin:
 
     # identite sur rectangle par superposition
     pygame.draw.rect(fenetre,color_dark,[100,100,300,100])
-    fenetre.blit(nom , (110,110))
-    fenetre.blit(age , (110,150))
+    fenetre.blit(nom , (105,105))
+    fenetre.blit(age , (105,145))
 
     # texte sur bouton par superposition
-    fenetre.blit(annee , (540,410))
-    fenetre.blit(education , (933,260))
-    fenetre.blit(propriete , (937,360))
-    fenetre.blit(bienetre , (937,460))
-    fenetre.blit(quitter , (950,560))
+    fenetre.blit(annee , (533,400))
+    fenetre.blit(education , (923,250))
+    fenetre.blit(propriete , (925,350))
+    fenetre.blit(bienetre , (922,450))
+    fenetre.blit(quitter , (935,550))
 
     # updates the frames of the game
     pygame.display.update()
