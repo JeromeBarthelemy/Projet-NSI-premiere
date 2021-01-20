@@ -1,11 +1,11 @@
-# NSI1ere
+# NSI1ere - ONLIFE
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
 Application du type "jeu de role" ou l'utilisateur se met dans la peau d'un personnage. (similairement a l'application "bitlife")
 <br>Trello pour s'organiser: https://trello.com/b/nQkLOTQe
 
 ### Professeur:
-Downloader les images et ouvrir le fichier page principale. Pour l'instant il y a eu menu avec le bouton jouer et quitter qui  marchent. Le bouton jouer nous emmene a un menu pour selectionner le sexe. Il est possible d'appuyer sur les boutons bien être, études et propiétés qui vous ouvrirons, chacuns, une autre fenêtre (qu'il nous faut encore personnaliser), il sera possible de fermer ces fenêtres avec le bouton pour vous ramener à la page principale. Il est également possible d'appuyer sur le bouton "+ une année" pour avancer dans le jeu ce qui va changer l'âge dans le cadre en haut à gauche de la page principale.
+Downloader toutes les images dans le folder images et ouvrir le fichier "pageprincipale". Pour l'instant il y a un menu avec le bouton jouer et quitter qui marchent. Le bouton jouer nous emmene a un menu pour selectionner le sexe. En fonction du sexe choisis, une page principale s'ouvrira avec un personnage aleatoire. Le nom est aussi aleatoire et en fonction du sexe. Il varie entre les noms des 4 personnes du groupe. Il est possible d'appuyer sur les boutons bien être, études et propiétés qui vous ouvrirons, chacuns, une autre fenêtre (qu'il nous faut encore personnaliser), il sera possible de fermer ces fenêtres avec le bouton pour vous ramener à la page principale. Il est également possible d'appuyer sur le bouton "+ une année" pour avancer dans le jeu ce qui va changer l'âge dans le cadre en haut à gauche de la page principale.
 
 ### Membres:
 <br>Aurelie Gallet
