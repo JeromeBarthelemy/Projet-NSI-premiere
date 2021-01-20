@@ -121,7 +121,7 @@ def principal_femme():
             #verifie si la souris est cliquee
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # variation de l'age
-                if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
+                if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+100:
                     variableage = variableage+1
                     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
 
@@ -210,10 +210,10 @@ def principal_femme():
             pygame.draw.rect(fenetre,color_dark,[900,550,200,50])
 
         # bouton annee
-        if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
-            pygame.draw.rect(fenetre,color_light,[525,360,200,100])
+        if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+100:
+            pygame.draw.rect(fenetre,color_light,[525,400,200,100])
         else:
-            pygame.draw.rect(fenetre,color_dark,[525,360,200,100])
+            pygame.draw.rect(fenetre,color_dark,[525,400,200,100])
 
         # identite sur rectangle par superposition
         pygame.draw.rect(fenetre,color_dark,[70,100,365,100])
@@ -221,8 +221,8 @@ def principal_femme():
         fenetre.blit(age , (75,145))
 
         # texte sur bouton par superposition
-        fenetre.blit(plus , (615,360))
-        fenetre.blit(annee , (546,400))
+        fenetre.blit(plus , (615,400))
+        fenetre.blit(annee , (546,440))
         fenetre.blit(education , (923,250))
         fenetre.blit(propriete , (925,350))
         fenetre.blit(bienetre , (922,450))
@@ -284,7 +284,7 @@ def principal_homme():
             #verifie si la souris est cliquee
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # variation de l'age
-                if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
+                if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+100:
                     variableage = variableage+1
                     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
 
@@ -373,10 +373,10 @@ def principal_homme():
             pygame.draw.rect(fenetre,color_dark,[900,550,200,50])
 
         # bouton annee
-        if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
-            pygame.draw.rect(fenetre,color_light,[525,360,200,100])
+        if 525 <= mouse[0] <= 525+200 and 400 <= mouse[1] <= 400+100:
+            pygame.draw.rect(fenetre,color_light,[525,400,200,100])
         else:
-            pygame.draw.rect(fenetre,color_dark,[525,360,200,100])
+            pygame.draw.rect(fenetre,color_dark,[525,400,200,100])
 
         # identite sur rectangle par superposition
         pygame.draw.rect(fenetre,color_dark,[70,100,365,100])
@@ -384,8 +384,8 @@ def principal_homme():
         fenetre.blit(age , (75,145))
 
         # texte sur bouton par superposition
-        fenetre.blit(plus , (615,360))
-        fenetre.blit(annee , (546,400))
+        fenetre.blit(plus , (615,400))
+        fenetre.blit(annee , (546,440))
         fenetre.blit(education , (923,250))
         fenetre.blit(propriete , (925,350))
         fenetre.blit(bienetre , (922,450))
