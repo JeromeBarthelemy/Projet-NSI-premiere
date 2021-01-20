@@ -21,13 +21,23 @@ gameicon = pygame.display.set_icon(icon)
 
 
 # Noms
-
 nomsfemmes=["Clara Cuoghi","Aurelie Gallet"]
 nomshommes=["Rayane Dahmoul","Haroun Abidi"]
 
+# Theme
+mytheme = pygame_menu.themes.THEME_DARK.copy()
+mytheme.background_color=(255,204,204)
+mytheme.title_background_color=(255,153,153)
+mytheme.title_bar_style=pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
+mytheme.title_font=pygame_menu.font.FONT_COMIC_NEUE
+mytheme.title_font_color=(0,0,0)
+mytheme.widget_font=pygame_menu.font.FONT_NEVIS
+mytheme.widget_font_color=(0,0,0)
+
+
 def start_the_game():
     pygame.init()
-    ecran = pygame_menu.Menu(700, 900, 'ONLIFE',theme=pygame_menu.themes.THEME_ORANGE)
+    ecran = pygame_menu.Menu(800, 1200, 'ONLIFE',theme=mytheme)
     fille= ecran.add_image('fille.jpg')
     mec= ecran.add_image('mec.jpg')
     fille= ecran.add_button('Femme',principal_femme)
@@ -365,7 +375,8 @@ def principal_femme():
         pygame.display.flip()
 
 def __intit__():
-    menu = pygame_menu.Menu(700, 900, 'ONLIFE',theme=pygame_menu.themes.THEME_ORANGE)
+    menu = pygame_menu.Menu(800, 1200, 'ONLIFE',theme=mytheme)
+    logo= menu.add_image('icon.png')
     menu.add_button('Jouer', start_the_game)
     menu.add_button('Option', option_the_game)
     menu.add_button('Quitter', pygame_menu.events.EXIT)
