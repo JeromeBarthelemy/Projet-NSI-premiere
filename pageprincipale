@@ -1,10 +1,11 @@
+#Importation des bibliotheques
 import pygame
 import pygame_menu
 import random
 from pygame.locals import *
 from pygame_menu import sound
 
-
+# Initialisation de pygame
 pygame.init()
 
 #Création de la fenêtre
@@ -36,6 +37,7 @@ def start_the_game():
     ecran.mainloop(fenetre)
     return start_the_game
 
+#Fonction option a remplir
 def option_the_game():
     return option_the_game
 
