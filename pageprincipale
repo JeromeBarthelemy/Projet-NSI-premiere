@@ -1,5 +1,6 @@
 import pygame
 import pygame_menu
+import random
 from pygame.locals import *
 from pygame_menu import sound
 
@@ -14,10 +15,14 @@ fenetre = pygame.display.set_mode((width,height))
 fenetre.fill(background_colour)
 gamename = pygame.display.set_caption("Onlife")
 icon = pygame.image.load('icon.png').convert_alpha()
+iconfond =pygame.transform.scale(icon,(200,200))
 gameicon = pygame.display.set_icon(icon)
 
 
+# Noms
 
+nomsfemmes=["Clara Cuoghi","Aurelie Gallet"]
+nomshommes=["Rayane Dahmoul","Haroun Abidi"]
 
 def start_the_game():
     pygame.init()
@@ -27,7 +32,7 @@ def start_the_game():
     fille= ecran.add_button('Femme',principal_femme)
     mec= ecran.add_button('Homme',principal_homme)
 
-    ecran.add_button('retour',__intit__)
+    ecran.add_button('Retour',__intit__)
     ecran.mainloop(fenetre)
     return start_the_game
 
@@ -53,12 +58,12 @@ def principal_homme():
     smallfont = pygame.font.SysFont('comicsansms',35)
 
     # texte
-    nom = smallfont.render('Nom:' , True , color)
+    nomhomme = smallfont.render('Nom: '+random.choice(nomshommes) , True , color)
     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
     education = smallfont.render('Education' , True , color)
     propriete = smallfont.render('Propriete' , True , color)
     bienetre = smallfont.render('Bien-etre' , True , color)
-    quitter = smallfont.render('Quitter' , True , color)
+    retourmenu = smallfont.render('Retour' , True , color)
     plus = smallfont.render('+' , True , color)
     annee = smallfont.render('une annee' , True , color)
     retour = smallfont.render('retour' , True , color)
@@ -74,7 +79,8 @@ def principal_homme():
         fenetre.fill(background_colour)
         pygame.draw.rect(fenetre, (255,204,204), pygame.Rect(50, 50, width-100, height-100))
         perso = pygame.image.load("mec.jpg").convert_alpha()
-        fenetre.blit(perso, (100,300))
+        fenetre.blit(iconfond, (525,100))
+        fenetre.blit(perso, (100,320))
         # Position de la souris
         mouse = pygame.mouse.get_pos()
         for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
@@ -83,7 +89,8 @@ def principal_homme():
                 pygame.display.quit()
             #verifie si la souris est cliquee
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if 525 <= mouse[0] <= 525+200 and 350 <= mouse[1] <= 350+100:
+                # variation de l'age
+                if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
                     variableage = variableage+1
                     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
 
@@ -143,9 +150,9 @@ def principal_homme():
                                 if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
                                     pygame.display.update()
                                     bien=False
-                # bouton quitter
+                # bouton retour
                 if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
-                    pygame.quit()
+                    __intit__()
 
         # bouton education
         if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
@@ -165,30 +172,30 @@ def principal_homme():
         else:
             pygame.draw.rect(fenetre,color_dark,[900,450,200,50])
 
-        # bouton quitter
+        # bouton retour
         if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
             pygame.draw.rect(fenetre,color_light,[900,550,200,50])
         else:
             pygame.draw.rect(fenetre,color_dark,[900,550,200,50])
 
         # bouton annee
-        if 525 <= mouse[0] <= 525+200 and 350 <= mouse[1] <= 350+100:
-            pygame.draw.rect(fenetre,color_light,[525,350,200,100])
+        if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
+            pygame.draw.rect(fenetre,color_light,[525,360,200,100])
         else:
-            pygame.draw.rect(fenetre,color_dark,[525,350,200,100])
+            pygame.draw.rect(fenetre,color_dark,[525,360,200,100])
 
         # identite sur rectangle par superposition
-        pygame.draw.rect(fenetre,color_dark,[100,100,300,100])
-        fenetre.blit(nom , (105,105))
-        fenetre.blit(age , (105,145))
+        pygame.draw.rect(fenetre,color_dark,[70,100,365,100])
+        fenetre.blit(nomhomme , (75,105))
+        fenetre.blit(age , (75,145))
 
         # texte sur bouton par superposition
-        fenetre.blit(plus , (615,350))
-        fenetre.blit(annee , (546,390))
+        fenetre.blit(plus , (615,360))
+        fenetre.blit(annee , (546,400))
         fenetre.blit(education , (923,250))
         fenetre.blit(propriete , (925,350))
         fenetre.blit(bienetre , (922,450))
-        fenetre.blit(quitter , (935,550))
+        fenetre.blit(retourmenu , (945,550))
 
         # updates the frames of the game
         pygame.display.update()
@@ -212,12 +219,12 @@ def principal_femme():
     smallfont = pygame.font.SysFont('comicsansms',35)
 
     # texte
-    nom = smallfont.render('Nom:' , True , color)
+    nomfemme = smallfont.render('Nom: '+random.choice(nomsfemmes) , True , color)
     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
     education = smallfont.render('Education' , True , color)
     propriete = smallfont.render('Propriete' , True , color)
     bienetre = smallfont.render('Bien-etre' , True , color)
-    quitter = smallfont.render('Quitter' , True , color)
+    retourmenu = smallfont.render('Retour' , True , color)
     plus = smallfont.render('+' , True , color)
     annee = smallfont.render('une annee' , True , color)
     retour = smallfont.render('retour' , True , color)
@@ -233,7 +240,8 @@ def principal_femme():
         fenetre.fill(background_colour)
         pygame.draw.rect(fenetre, (255,204,204), pygame.Rect(50, 50, width-100, height-100))
         perso = pygame.image.load("fille.jpg").convert_alpha()
-        fenetre.blit(perso, (100,300))
+        fenetre.blit(iconfond, (525,100))
+        fenetre.blit(perso, (100,320))
         # Position de la souris
         mouse = pygame.mouse.get_pos()
         for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
@@ -242,7 +250,8 @@ def principal_femme():
                 pygame.display.quit()
             #verifie si la souris est cliquee
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if 525 <= mouse[0] <= 525+200 and 350 <= mouse[1] <= 350+100:
+                # variation de l'age
+                if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
                     variableage = variableage+1
                     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
 
@@ -302,9 +311,9 @@ def principal_femme():
                                 if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
                                     pygame.display.update()
                                     bien=False
-                # bouton quitter
+                # bouton retour
                 if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
-                    pygame.quit()
+                    __intit__()
 
         # bouton education
         if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
@@ -324,30 +333,30 @@ def principal_femme():
         else:
             pygame.draw.rect(fenetre,color_dark,[900,450,200,50])
 
-        # bouton quitter
+        # bouton retour
         if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
             pygame.draw.rect(fenetre,color_light,[900,550,200,50])
         else:
             pygame.draw.rect(fenetre,color_dark,[900,550,200,50])
 
         # bouton annee
-        if 525 <= mouse[0] <= 525+200 and 350 <= mouse[1] <= 350+100:
-            pygame.draw.rect(fenetre,color_light,[525,350,200,100])
+        if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
+            pygame.draw.rect(fenetre,color_light,[525,360,200,100])
         else:
-            pygame.draw.rect(fenetre,color_dark,[525,350,200,100])
+            pygame.draw.rect(fenetre,color_dark,[525,360,200,100])
 
         # identite sur rectangle par superposition
-        pygame.draw.rect(fenetre,color_dark,[100,100,300,100])
-        fenetre.blit(nom , (105,105))
-        fenetre.blit(age , (105,145))
+        pygame.draw.rect(fenetre,color_dark,[70,100,365,100])
+        fenetre.blit(nomfemme , (75,105))
+        fenetre.blit(age , (75,145))
 
         # texte sur bouton par superposition
-        fenetre.blit(plus , (615,350))
-        fenetre.blit(annee , (546,390))
+        fenetre.blit(plus , (615,360))
+        fenetre.blit(annee , (546,400))
         fenetre.blit(education , (923,250))
         fenetre.blit(propriete , (925,350))
         fenetre.blit(bienetre , (922,450))
-        fenetre.blit(quitter , (935,550))
+        fenetre.blit(retourmenu , (945,550))
 
         # updates the frames of the game
         pygame.display.update()
