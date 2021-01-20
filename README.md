@@ -5,7 +5,7 @@ Application du type "jeu de role" ou l'utilisateur se met dans la peau d'un pers
 <br>Trello pour s'organiser: https://trello.com/b/nQkLOTQe
 
 ### Professeur:
-Downloader le png "bebe" et ouvrir le fichier page principale. Pour l'instant il est possible d'appuyer sur les boutons bien être, études et propiétés qui vous ouvrirons, chacuns, une autre fenêtre (qu'il nous faut encore personnaliser), il sera possible de fermer ces fenêtres avec le bouton pour vous ramener à la page principale. Il est également possible d'appuyer sur le bouton "+ une année" pour avancer dans le jeu ce qui va changer l'âge dans le cadre en haut à gauche de la page principale.
+Downloader le png "bebe" et "icon" et ouvrir le fichier page principale. Pour l'instant il est possible d'appuyer sur les boutons bien être, études et propiétés qui vous ouvrirons, chacuns, une autre fenêtre (qu'il nous faut encore personnaliser), il sera possible de fermer ces fenêtres avec le bouton pour vous ramener à la page principale. Il est également possible d'appuyer sur le bouton "+ une année" pour avancer dans le jeu ce qui va changer l'âge dans le cadre en haut à gauche de la page principale.
 
 ### Membres:
 <br>Aurelie Gallet
