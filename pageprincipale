@@ -24,7 +24,7 @@ def start_the_game():
     ecran = pygame_menu.Menu(700, 900, 'ONLIFE',theme=pygame_menu.themes.THEME_ORANGE)
     fille= ecran.add_image('fille.jpg')
     mec= ecran.add_image('mec.jpg')
-    mec= ecran.add_button('mec',principal)
+    mec= ecran.add_button('Homme',principal)
 
     ecran.add_button('retour',__intit__)
     ecran.mainloop(fenetre)
