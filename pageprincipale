@@ -24,6 +24,22 @@ gameicon = pygame.display.set_icon(icon)
 nomsfemmes=["Clara Cuoghi","Aurelie Gallet"]
 nomshommes=["Rayane Dahmoul","Haroun Abidi"]
 
+# Images
+femme1=pygame.image.load('Femme1.png').convert_alpha()
+femme2=pygame.image.load('Femme2.png').convert_alpha()
+femme3=pygame.image.load('Femme3.png').convert_alpha()
+femme4=pygame.image.load('Femme4.png').convert_alpha()
+
+homme1=pygame.image.load('Homme1.png').convert_alpha()
+homme2=pygame.image.load('Homme2.png').convert_alpha()
+homme3=pygame.image.load('Homme3.png').convert_alpha()
+homme4=pygame.image.load('Homme4.png').convert_alpha()
+homme5=pygame.image.load('Homme5.png').convert_alpha()
+
+imagesfemmes=[femme1,femme2,femme3,femme4]
+imageshommes=[homme1,homme2,homme3,homme4,homme5]
+
+
 # Theme
 mytheme = pygame_menu.themes.THEME_DARK.copy()
 mytheme.background_color=(255,204,204)
@@ -38,10 +54,9 @@ mytheme.widget_font_color=(0,0,0)
 def start_the_game():
     pygame.init()
     ecran = pygame_menu.Menu(800, 1200, 'ONLIFE',theme=mytheme)
-    fille= ecran.add_image('fille.jpg')
-    mec= ecran.add_image('mec.jpg')
-    fille= ecran.add_button('Femme',principal_femme)
-    mec= ecran.add_button('Homme',principal_homme)
+    genre = ecran.add_image('femmehomme.png')
+    femme = ecran.add_button('Femme',principal_femme)
+    homme = ecran.add_button('Homme',principal_homme)
 
     ecran.add_button('Retour',__intit__)
     ecran.mainloop(fenetre)
@@ -52,166 +67,7 @@ def option_the_game():
     return option_the_game
 
 
-#Boucle homme
-def principal_homme():
-    #variable de l'age
-    variableage = 0
 
-    # couleur texte
-    color = (255,255,255)
-
-    # couleur clair
-    color_light = (170,170,170)
-
-    # couleur sombre
-    color_dark = (100,100,100)
-
-    # police
-    smallfont = pygame.font.SysFont('comicsansms',35)
-
-    # texte
-    nomhomme = smallfont.render('Nom: '+random.choice(nomshommes) , True , color)
-    age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
-    education = smallfont.render('Education' , True , color)
-    propriete = smallfont.render('Propriete' , True , color)
-    bienetre = smallfont.render('Bien-etre' , True , color)
-    retourmenu = smallfont.render('Retour' , True , color)
-    plus = smallfont.render('+' , True , color)
-    annee = smallfont.render('une annee' , True , color)
-    retour = smallfont.render('retour' , True , color)
-
-    #Variable qui continue la boucle si = True, stoppe si = False
-    fin = False
-    edu=False
-    prop=False
-    bien=False
-
-    #Boucle infinie
-    while not fin:
-        fenetre.fill(background_colour)
-        pygame.draw.rect(fenetre, (255,204,204), pygame.Rect(50, 50, width-100, height-100))
-        perso = pygame.image.load("mec.jpg").convert_alpha()
-        fenetre.blit(iconfond, (525,100))
-        fenetre.blit(perso, (100,320))
-        # Position de la souris
-        mouse = pygame.mouse.get_pos()
-        for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
-            if event.type == QUIT:     #Si un de ces événements est de type QUIT
-                fin = True      #On arrête la boucle
-                pygame.display.quit()
-            #verifie si la souris est cliquee
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                # variation de l'age
-                if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
-                    variableage = variableage+1
-                    age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
-
-                # ouverture page education
-                if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
-                    edu=True
-                    while edu:
-                        pygame.display.update()
-                        fenetreedu = pygame.display.set_mode((width,height))
-                        fenetreedu.fill(background_colour)
-                        mouse = pygame.mouse.get_pos()
-                        if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
-                            pygame.draw.rect(fenetreedu,color_light,[50,50,125,50])
-                        else:
-                            pygame.draw.rect(fenetreedu,color_dark,[50,50,125,50])
-                        fenetre.blit(retour , (60,50))
-                        for event in pygame.event.get():
-                            if event.type == pygame.MOUSEBUTTONDOWN:
-                                if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
-                                    pygame.display.update()
-                                    edu=False
-
-                # ouverture page propriete
-                if 900 <= mouse[0] <= 900+200 and 350 <= mouse[1] <= 350+50:
-                    prop=True
-                    while prop:
-                        pygame.display.update()
-                        fenetreprop = pygame.display.set_mode((width,height))
-                        fenetreprop.fill(background_colour)
-                        mouse = pygame.mouse.get_pos()
-                        if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
-                            pygame.draw.rect(fenetreprop,color_light,[50,50,125,50])
-                        else:
-                            pygame.draw.rect(fenetreprop,color_dark,[50,50,125,50])
-                        fenetre.blit(retour , (60,50))
-                        for event in pygame.event.get():
-                            if event.type == pygame.MOUSEBUTTONDOWN:
-                                if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
-                                    pygame.display.update()
-                                    prop=False
-
-                # ouverture page bien-etre
-                if 900 <= mouse[0] <= 900+200 and 450 <= mouse[1] <= 450+50:
-                    bien=True
-                    while bien:
-                        pygame.display.update()
-                        fenetrebien = pygame.display.set_mode((width,height))
-                        fenetrebien.fill(background_colour)
-                        mouse = pygame.mouse.get_pos()
-                        if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
-                            pygame.draw.rect(fenetrebien,color_light,[50,50,125,50])
-                        else:
-                            pygame.draw.rect(fenetrebien,color_dark,[50,50,125,50])
-                        fenetre.blit(retour , (60,50))
-                        for event in pygame.event.get():
-                            if event.type == pygame.MOUSEBUTTONDOWN:
-                                if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
-                                    pygame.display.update()
-                                    bien=False
-                # bouton retour
-                if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
-                    __intit__()
-
-        # bouton education
-        if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
-            pygame.draw.rect(fenetre,color_light,[900,250,200,50])
-        else:
-            pygame.draw.rect(fenetre,color_dark,[900,250,200,50])
-
-        # bouton propriete
-        if 900 <= mouse[0] <= 900+200 and 350 <= mouse[1] <= 350+50:
-            pygame.draw.rect(fenetre,color_light,[900,350,200,50])
-        else:
-            pygame.draw.rect(fenetre,color_dark,[900,350,200,50])
-
-        # bouton bien etre
-        if 900 <= mouse[0] <= 900+200 and 450 <= mouse[1] <= 450+50:
-            pygame.draw.rect(fenetre,color_light,[900,450,200,50])
-        else:
-            pygame.draw.rect(fenetre,color_dark,[900,450,200,50])
-
-        # bouton retour
-        if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
-            pygame.draw.rect(fenetre,color_light,[900,550,200,50])
-        else:
-            pygame.draw.rect(fenetre,color_dark,[900,550,200,50])
-
-        # bouton annee
-        if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
-            pygame.draw.rect(fenetre,color_light,[525,360,200,100])
-        else:
-            pygame.draw.rect(fenetre,color_dark,[525,360,200,100])
-
-        # identite sur rectangle par superposition
-        pygame.draw.rect(fenetre,color_dark,[70,100,365,100])
-        fenetre.blit(nomhomme , (75,105))
-        fenetre.blit(age , (75,145))
-
-        # texte sur bouton par superposition
-        fenetre.blit(plus , (615,360))
-        fenetre.blit(annee , (546,400))
-        fenetre.blit(education , (923,250))
-        fenetre.blit(propriete , (925,350))
-        fenetre.blit(bienetre , (922,450))
-        fenetre.blit(retourmenu , (945,550))
-
-        # updates the frames of the game
-        pygame.display.update()
-        pygame.display.flip()
 
 #Boucle femme
 def principal_femme():
@@ -241,6 +97,9 @@ def principal_femme():
     annee = smallfont.render('une annee' , True , color)
     retour = smallfont.render('retour' , True , color)
 
+    #image
+    persofemme=random.choice(imagesfemmes)
+
     #Variable qui continue la boucle si = True, stoppe si = False
     fin = False
     edu=False
@@ -251,9 +110,8 @@ def principal_femme():
     while not fin:
         fenetre.fill(background_colour)
         pygame.draw.rect(fenetre, (255,204,204), pygame.Rect(50, 50, width-100, height-100))
-        perso = pygame.image.load("fille.jpg").convert_alpha()
         fenetre.blit(iconfond, (525,100))
-        fenetre.blit(perso, (100,320))
+        fenetre.blit(persofemme, (20,250))
         # Position de la souris
         mouse = pygame.mouse.get_pos()
         for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
@@ -360,6 +218,169 @@ def principal_femme():
         # identite sur rectangle par superposition
         pygame.draw.rect(fenetre,color_dark,[70,100,365,100])
         fenetre.blit(nomfemme , (75,105))
+        fenetre.blit(age , (75,145))
+
+        # texte sur bouton par superposition
+        fenetre.blit(plus , (615,360))
+        fenetre.blit(annee , (546,400))
+        fenetre.blit(education , (923,250))
+        fenetre.blit(propriete , (925,350))
+        fenetre.blit(bienetre , (922,450))
+        fenetre.blit(retourmenu , (945,550))
+
+        # updates the frames of the game
+        pygame.display.update()
+        pygame.display.flip()
+
+#Boucle homme
+def principal_homme():
+    #variable de l'age
+    variableage = 0
+
+    # couleur texte
+    color = (255,255,255)
+
+    # couleur clair
+    color_light = (170,170,170)
+
+    # couleur sombre
+    color_dark = (100,100,100)
+
+    # police
+    smallfont = pygame.font.SysFont('comicsansms',35)
+
+    # texte
+    nomhomme = smallfont.render('Nom: '+random.choice(nomshommes) , True , color)
+    age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+    education = smallfont.render('Education' , True , color)
+    propriete = smallfont.render('Propriete' , True , color)
+    bienetre = smallfont.render('Bien-etre' , True , color)
+    retourmenu = smallfont.render('Retour' , True , color)
+    plus = smallfont.render('+' , True , color)
+    annee = smallfont.render('une annee' , True , color)
+    retour = smallfont.render('retour' , True , color)
+
+    # image
+    persohomme=random.choice(imageshommes)
+
+    #Variable qui continue la boucle si = True, stoppe si = False
+    fin = False
+    edu=False
+    prop=False
+    bien=False
+
+    #Boucle infinie
+    while not fin:
+        fenetre.fill(background_colour)
+        pygame.draw.rect(fenetre, (255,204,204), pygame.Rect(50, 50, width-100, height-100))
+        fenetre.blit(iconfond, (525,100))
+        fenetre.blit(persohomme, (20,250))
+        # Position de la souris
+        mouse = pygame.mouse.get_pos()
+        for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
+            if event.type == QUIT:     #Si un de ces événements est de type QUIT
+                fin = True      #On arrête la boucle
+                pygame.display.quit()
+            #verifie si la souris est cliquee
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                # variation de l'age
+                if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
+                    variableage = variableage+1
+                    age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+
+                # ouverture page education
+                if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
+                    edu=True
+                    while edu:
+                        pygame.display.update()
+                        fenetreedu = pygame.display.set_mode((width,height))
+                        fenetreedu.fill(background_colour)
+                        mouse = pygame.mouse.get_pos()
+                        if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                            pygame.draw.rect(fenetreedu,color_light,[50,50,125,50])
+                        else:
+                            pygame.draw.rect(fenetreedu,color_dark,[50,50,125,50])
+                        fenetre.blit(retour , (60,50))
+                        for event in pygame.event.get():
+                            if event.type == pygame.MOUSEBUTTONDOWN:
+                                if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                                    pygame.display.update()
+                                    edu=False
+
+                # ouverture page propriete
+                if 900 <= mouse[0] <= 900+200 and 350 <= mouse[1] <= 350+50:
+                    prop=True
+                    while prop:
+                        pygame.display.update()
+                        fenetreprop = pygame.display.set_mode((width,height))
+                        fenetreprop.fill(background_colour)
+                        mouse = pygame.mouse.get_pos()
+                        if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                            pygame.draw.rect(fenetreprop,color_light,[50,50,125,50])
+                        else:
+                            pygame.draw.rect(fenetreprop,color_dark,[50,50,125,50])
+                        fenetre.blit(retour , (60,50))
+                        for event in pygame.event.get():
+                            if event.type == pygame.MOUSEBUTTONDOWN:
+                                if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                                    pygame.display.update()
+                                    prop=False
+
+                # ouverture page bien-etre
+                if 900 <= mouse[0] <= 900+200 and 450 <= mouse[1] <= 450+50:
+                    bien=True
+                    while bien:
+                        pygame.display.update()
+                        fenetrebien = pygame.display.set_mode((width,height))
+                        fenetrebien.fill(background_colour)
+                        mouse = pygame.mouse.get_pos()
+                        if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                            pygame.draw.rect(fenetrebien,color_light,[50,50,125,50])
+                        else:
+                            pygame.draw.rect(fenetrebien,color_dark,[50,50,125,50])
+                        fenetre.blit(retour , (60,50))
+                        for event in pygame.event.get():
+                            if event.type == pygame.MOUSEBUTTONDOWN:
+                                if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                                    pygame.display.update()
+                                    bien=False
+                # bouton retour
+                if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
+                    __intit__()
+
+        # bouton education
+        if 900 <= mouse[0] <= 900+200 and 250 <= mouse[1] <= 250+50:
+            pygame.draw.rect(fenetre,color_light,[900,250,200,50])
+        else:
+            pygame.draw.rect(fenetre,color_dark,[900,250,200,50])
+
+        # bouton propriete
+        if 900 <= mouse[0] <= 900+200 and 350 <= mouse[1] <= 350+50:
+            pygame.draw.rect(fenetre,color_light,[900,350,200,50])
+        else:
+            pygame.draw.rect(fenetre,color_dark,[900,350,200,50])
+
+        # bouton bien etre
+        if 900 <= mouse[0] <= 900+200 and 450 <= mouse[1] <= 450+50:
+            pygame.draw.rect(fenetre,color_light,[900,450,200,50])
+        else:
+            pygame.draw.rect(fenetre,color_dark,[900,450,200,50])
+
+        # bouton retour
+        if 900 <= mouse[0] <= 900+200 and 550 <= mouse[1] <= 550+50:
+            pygame.draw.rect(fenetre,color_light,[900,550,200,50])
+        else:
+            pygame.draw.rect(fenetre,color_dark,[900,550,200,50])
+
+        # bouton annee
+        if 525 <= mouse[0] <= 525+200 and 360 <= mouse[1] <= 360+100:
+            pygame.draw.rect(fenetre,color_light,[525,360,200,100])
+        else:
+            pygame.draw.rect(fenetre,color_dark,[525,360,200,100])
+
+        # identite sur rectangle par superposition
+        pygame.draw.rect(fenetre,color_dark,[70,100,365,100])
+        fenetre.blit(nomhomme , (75,105))
         fenetre.blit(age , (75,145))
 
         # texte sur bouton par superposition
