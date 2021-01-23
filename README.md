@@ -11,7 +11,7 @@ Downloader toutes les images dans le folder images et ouvrir le fichier "pagepri
 <br>Aurelie Gallet
 <br>Clara Cuoghi
 <br>Haroun Habidi
-<br>Rayene Dahmoul
+<br>Rayane Dahmoul
 
 ### 16 Semaines:
 - 2 semaines de mise en place
