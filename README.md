@@ -14,7 +14,7 @@ On a eu beaucoup de difficultés au début pour se mettre d'accord sur le jeu et
 Les difficultés qu'il nous faut régler assez vite son tout d'abord de trouver un mini-jeu assez simple et supplémentaire qui nous permettra de rajouter de l'argent bonus dans notre jeu et pour le rendre plus ludique. La deuxième difficulté qu'il nous faut vite surmonter est de réussir à faire toutes les listes et les dictionnaires de chaque sous-pages.
 
 ### Quelles sont celles qu'on aura pas le temps de surmonter et qu'est-ce que cela implique comme évolution sur le projet final ?
-La seule chose qui pour l'instant sera impossible de faire c'est des barres de vie qui devaient consister à afficher le niveau d'intelligence, taux de bonheur etc. du personnage tout le long de sa vie. Pour l'instant nous avons décidé de le mettre de côté ce qui ne changera pas le principe du jeu. Nous devons également renoncer à offrir tous les choix que nous aurions voulu offrir (le choix de l'ecole, arreter l'ecole en avance ou sauter des classes par exemple).
+La seule chose qui pour l'instant sera impossible de faire c'est des barres de vie qui devaient consister à afficher le niveau d'intelligence, taux de bonheur etc. du personnage tout le long de sa vie. Pour l'instant nous avons décidé de le mettre de côté ce qui ne changera pas le principe du jeu. Nous devons également renoncer à offrir tous les choix que nous aurions voulu offrir (le choix de l'école, arrêter l'école en avance ou sauter des classes par exemple).
 
 ### Membres:
 <br>Aurelie Gallet
