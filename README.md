@@ -7,6 +7,12 @@ Application du type "jeu de role" ou l'utilisateur se met dans la peau d'un pers
 ### Professeur:
 Downloader toutes les images dans le folder images et ouvrir le fichier "pageprincipale". Pour l'instant il y a un menu avec le bouton jouer et quitter qui marchent. Le bouton jouer nous emmene a un menu pour selectionner le sexe. En fonction du sexe choisis, une page principale s'ouvrira avec un personnage aleatoire. Le nom est aussi aleatoire et en fonction du sexe. Il varie entre les noms des 4 personnes du groupe. Il est possible d'appuyer sur les boutons bien être, études et propiétés qui vous ouvrirons, chacuns, une autre fenêtre (qu'il nous faut encore personnaliser), il sera possible de fermer ces fenêtres avec le bouton pour vous ramener à la page principale. Il est également possible d'appuyer sur le bouton "+ une année" pour avancer dans le jeu ce qui va changer l'âge dans le cadre en haut à gauche de la page principale.
 
+### Quelles sont celles qui ont été surmontées ?
+
+### Quelles sont celles qu'il faut absolument régler au plus vite ?
+
+### Quelles sont celles qu'on aura pas le temps de surmonter et qu'est-ce que cela implique comme évolution sur le projet final ?
+
 ### Membres:
 <br>Aurelie Gallet
 <br>Clara Cuoghi
