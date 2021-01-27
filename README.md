@@ -38,13 +38,10 @@ Seulement avec du python
 
 ### Partage des tâches
 
-Haroun-----Interface graphique
-
-Rayene-----Interface graphique
-
-Aurélie----Code pour les différentes parties
-
-Clara------Code pour les différentes parties
+Clara------ Aide pour rechercher comment coder les éléments, aide pour coder et transmets les informations dans le readme
+Aurélie---- Code principal et des sous-parties et relectures du readme
+Haroun----- Code le mini-jeu et certaines parties
+Rayane----- Code du menu et code de certains éléments
 
 
 ### Document de formation à Jupyter
