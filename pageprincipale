@@ -21,7 +21,7 @@ gameicon = pygame.display.set_icon(icon)
 
 
 # Noms
-nomsfemmes=["Clara Cuoghi","Aurelie Gallet"]
+nomsfemmes=["Clara Cuoghi","Aurélie Gallet"]
 nomshommes=["Rayane Dahmoul","Haroun Abidi"]
 
 # Images
@@ -92,23 +92,23 @@ def principal_femme():
     nomfemme = smallfont.render('Nom: '+random.choice(nomsfemmes) , True , color)
     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
     education = smallfont.render('Education' , True , color)
-    propriete = smallfont.render('Propriete' , True , color)
-    proprietebig = bigfont.render('Propriete' , True , color)
-    bienetre = smallfont.render('Bien-etre' , True , color)
+    propriete = smallfont.render('Propriété' , True , color)
+    proprietebig = bigfont.render('Propriété' , True , color)
+    bienetre = smallfont.render('Bien-être' , True , color)
     retourmenu = smallfont.render('Retour' , True , color)
     plus = smallfont.render('+' , True , color)
-    annee = smallfont.render('une annee' , True , color)
+    annee = smallfont.render('une année' , True , color)
     retour = smallfont.render('retour' , True , color)
     argent = bigfont.render(str(variableargent)+"  "+'€', True , color)
     enseignement = bigfont.render('Enseignement' , True , color)
-    etudes = bigfont.render('Etudes superieur' , True , color)
-    metier = bigfont.render('Metiers' , True , color)
+    etudes = bigfont.render('Etudes supérieures' , True , color)
+    metier = bigfont.render('Métiers' , True , color)
     domicile = smallfont.render('Domicile:' , True , color)
     transport = smallfont.render('Transport:' , True , color)
     animal = smallfont.render('Animal de compagnie:' , True , color)
-    jeune = bigfont.render("Vous etes trop jeune pour aller a l'ecole!" , True , color) 
-    revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color) 
-    termine = bigfont.render("Vous avez atteint 100 ans, le jeu est termine!" , True , color) 
+    jeune = bigfont.render("Vous êtes trop jeune pour aller à l'école!" , True , color)
+    revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color)
+    termine = bigfont.render("Vous avez atteint 100 ans, le jeu est terminé!" , True , color)
 
     #image
     persofemme=random.choice(imagesfemmes)
@@ -147,7 +147,7 @@ def principal_femme():
                         fenetretermine.fill(background_colour)
                         mouse = pygame.mouse.get_pos()
                         fenetretermine.blit(termine , (60,350))
-                        
+
 
                 # ouverture page education
                 if 900 <= mouse[0] <= 900+200 and 300 <= mouse[1] <= 300+50:
@@ -169,7 +169,7 @@ def principal_femme():
                         if variableage <= 18 and variableage > 2:
                             fenetreedu.blit(enseignement , (510,40))
                         elif variableage > 18 and variableage <= 23:
-                            fenetreedu.blit(etudes , (500,40))
+                            fenetreedu.blit(etudes , (460,40))
                         elif variableage > 23:
                             fenetreedu.blit(metier , (590,40))
                         # page
@@ -313,23 +313,23 @@ def principal_homme():
     nomhomme = smallfont.render('Nom: '+random.choice(nomshommes) , True , color)
     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
     education = smallfont.render('Education' , True , color)
-    propriete = smallfont.render('Propriete' , True , color)
-    proprietebig = bigfont.render('Propriete' , True , color)
-    bienetre = smallfont.render('Bien-etre' , True , color)
+    propriete = smallfont.render('Propriété' , True , color)
+    proprietebig = bigfont.render('Propriété' , True , color)
+    bienetre = smallfont.render('Bien-être' , True , color)
     retourmenu = smallfont.render('Retour' , True , color)
     plus = smallfont.render('+' , True , color)
-    annee = smallfont.render('une annee' , True , color)
+    annee = smallfont.render('une année' , True , color)
     retour = smallfont.render('retour' , True , color)
     argent = bigfont.render(str(variableargent)+"  "+'€', True , color)
     enseignement = bigfont.render('Enseignement' , True , color)
-    etudes = bigfont.render('Etudes superieur' , True , color)
-    metier = bigfont.render('Metiers' , True , color)
+    etudes = bigfont.render('Etudes supérieures' , True , color)
+    metier = bigfont.render('Métiers' , True , color)
     domicile = smallfont.render('Domicile:' , True , color)
     transport = smallfont.render('Transport:' , True , color)
     animal = smallfont.render('Animal de compagnie:' , True , color)
-    jeune = bigfont.render("Vous etes trop jeune pour aller a l'ecole!" , True , color) 
-    revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color) 
-    termine = bigfont.render("Vous avez atteint 100 ans, le jeu est termine!" , True , color) 
+    jeune = bigfont.render("Vous êtes trop jeune pour aller à l'école!" , True , color)
+    revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color)
+    termine = bigfont.render("Vous avez atteint 100 ans, le jeu est terminé!" , True , color)
 
     # image
     persohomme=random.choice(imageshommes)
@@ -388,7 +388,7 @@ def principal_homme():
                         if variableage <= 18 and variableage > 2:
                             fenetreedu.blit(enseignement , (510,40))
                         elif variableage > 18 and variableage <= 23:
-                            fenetreedu.blit(etudes , (500,40))
+                            fenetreedu.blit(etudes , (460,40))
                         elif variableage > 23:
                             fenetreedu.blit(metier , (590,40))
                         # page
