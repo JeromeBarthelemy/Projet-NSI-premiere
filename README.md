@@ -50,6 +50,7 @@ Incorporer les donnees -
 Faire le mini jeu - en cours
 Page propriete - 
 Page bien etre - 
+Ajout des accents -
 
 ### Document de formation à Jupyter
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/alphaaureus/NSIterm/master?filepath=presentation.ipynb)
