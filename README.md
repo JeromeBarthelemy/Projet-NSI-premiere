@@ -43,6 +43,13 @@ Aurélie---- Code principal et des sous-parties et relectures du readme
 Haroun----- Code le mini-jeu et certaines parties
 Rayane----- Code du menu et code de certains éléments
 
+### A faire:
+Age maximum (fin du jeu) - fait
+Rechercher les donnees pour la fenetre education - en cours
+Incorporer les donnees - 
+Faire le mini jeu - en cours
+Page propriete - 
+Page bien etre - 
 
 ### Document de formation à Jupyter
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/alphaaureus/NSIterm/master?filepath=presentation.ipynb)
