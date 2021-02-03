@@ -108,6 +108,7 @@ def principal_femme():
     animal = smallfont.render('Animal de compagnie:' , True , color)
     jeune = bigfont.render("Vous etes trop jeune pour aller a l'ecole!" , True , color) 
     revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color) 
+    termine = bigfont.render("Vous avez atteint 100 ans, le jeu est termine!" , True , color) 
 
     #image
     persofemme=random.choice(imagesfemmes)
@@ -117,6 +118,7 @@ def principal_femme():
     edu=False
     prop=False
     bien=False
+    terminer=False
 
     #Boucle infinie
     while not fin:
@@ -134,8 +136,18 @@ def principal_femme():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # variation de l'age
                 if 525 <= mouse[0] <= 525+200 and 510 <= mouse[1] <= 510+100:
-                    variableage = variableage+1
-                    age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+                    if variableage < 100:
+                        variableage = variableage+1
+                        age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+                    else:
+                        terminer= True
+                    while terminer:
+                        pygame.display.update()
+                        fenetretermine = pygame.display.set_mode((width,height))
+                        fenetretermine.fill(background_colour)
+                        mouse = pygame.mouse.get_pos()
+                        fenetretermine.blit(termine , (60,350))
+                        
 
                 # ouverture page education
                 if 900 <= mouse[0] <= 900+200 and 300 <= mouse[1] <= 300+50:
@@ -317,6 +329,7 @@ def principal_homme():
     animal = smallfont.render('Animal de compagnie:' , True , color)
     jeune = bigfont.render("Vous etes trop jeune pour aller a l'ecole!" , True , color) 
     revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color) 
+    termine = bigfont.render("Vous avez atteint 100 ans, le jeu est termine!" , True , color) 
 
     # image
     persohomme=random.choice(imageshommes)
@@ -326,6 +339,7 @@ def principal_homme():
     edu=False
     prop=False
     bien=False
+    terminer=False
 
     #Boucle infinie
     while not fin:
@@ -343,8 +357,17 @@ def principal_homme():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # variation de l'age
                 if 525 <= mouse[0] <= 525+200 and 510 <= mouse[1] <= 510+100:
-                    variableage = variableage+1
-                    age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+                    if variableage < 100:
+                        variableage = variableage+1
+                        age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+                    else:
+                        terminer= True
+                    while terminer:
+                        pygame.display.update()
+                        fenetretermine = pygame.display.set_mode((width,height))
+                        fenetretermine.fill(background_colour)
+                        mouse = pygame.mouse.get_pos()
+                        fenetretermine.blit(termine , (60,350))
 
                 if 900 <= mouse[0] <= 900+200 and 300 <= mouse[1] <= 300+50:
                     edu=True
