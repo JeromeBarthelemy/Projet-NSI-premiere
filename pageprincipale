@@ -93,15 +93,21 @@ def principal_femme():
     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
     education = smallfont.render('Education' , True , color)
     propriete = smallfont.render('Propriete' , True , color)
+    proprietebig = bigfont.render('Propriete' , True , color)
     bienetre = smallfont.render('Bien-etre' , True , color)
     retourmenu = smallfont.render('Retour' , True , color)
     plus = smallfont.render('+' , True , color)
     annee = smallfont.render('une annee' , True , color)
     retour = smallfont.render('retour' , True , color)
     argent = bigfont.render(str(variableargent)+"  "+'€', True , color)
-    enseignement = smallfont.render('Enseignement' , True , color)
-    etudes = smallfont.render('Etudes superieur' , True , color)
-    metier = smallfont.render('Metiers' , True , color)
+    enseignement = bigfont.render('Enseignement' , True , color)
+    etudes = bigfont.render('Etudes superieur' , True , color)
+    metier = bigfont.render('Metiers' , True , color)
+    domicile = smallfont.render('Domicile:' , True , color)
+    transport = smallfont.render('Transport:' , True , color)
+    animal = smallfont.render('Animal de compagnie:' , True , color)
+    jeune = bigfont.render("Vous etes trop jeune pour aller a l'ecole!" , True , color) 
+    revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color) 
 
     #image
     persofemme=random.choice(imagesfemmes)
@@ -146,13 +152,19 @@ def principal_femme():
                             pygame.draw.rect(fenetreedu,color_dark,[50,50,125,50])
                         fenetreedu.blit(retour , (60,50))
                         # titre
-                        pygame.draw.rect(fenetreedu,color_dark,[230,25,900,100])
-                        if variableage <= 18:
-                            fenetreedu.blit(enseignement , (550,50))
+                        if  variableage > 2:
+                            pygame.draw.rect(fenetreedu,color_dark,[230,25,900,100])
+                        if variableage <= 18 and variableage > 2:
+                            fenetreedu.blit(enseignement , (510,40))
                         elif variableage > 18 and variableage <= 23:
-                            fenetreedu.blit(etudes , (550,50))
+                            fenetreedu.blit(etudes , (500,40))
                         elif variableage > 23:
-                            fenetreedu.blit(metier , (625,50))
+                            fenetreedu.blit(metier , (590,40))
+                        # page
+                        pygame.draw.rect(fenetreedu,color_dark,[50,165,1080,600])
+                        if variableage < 3:
+                            fenetreedu.blit(jeune , (100,350))
+                            fenetreedu.blit(revenez , (200,450))
 
                         for event in pygame.event.get():
                             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -176,6 +188,12 @@ def principal_femme():
                         fenetreprop.blit(retour , (60,50))
                         # titre
                         pygame.draw.rect(fenetreprop,color_dark,[230,25,900,100])
+                        fenetreprop.blit(proprietebig , (580,40))
+                        # page
+                        pygame.draw.rect(fenetreprop,color_dark,[50,165,1080,600])
+                        fenetreprop.blit(domicile , (75,200))
+                        fenetreprop.blit(transport , (75,300))
+                        fenetreprop.blit(animal , (75,400))
 
 
                         for event in pygame.event.get():
@@ -284,15 +302,21 @@ def principal_homme():
     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
     education = smallfont.render('Education' , True , color)
     propriete = smallfont.render('Propriete' , True , color)
+    proprietebig = bigfont.render('Propriete' , True , color)
     bienetre = smallfont.render('Bien-etre' , True , color)
     retourmenu = smallfont.render('Retour' , True , color)
     plus = smallfont.render('+' , True , color)
     annee = smallfont.render('une annee' , True , color)
     retour = smallfont.render('retour' , True , color)
     argent = bigfont.render(str(variableargent)+"  "+'€', True , color)
-    enseignement = smallfont.render('Enseignement' , True , color)
-    etudes = smallfont.render('Etudes superieur' , True , color)
-    metier = smallfont.render('Metiers' , True , color)
+    enseignement = bigfont.render('Enseignement' , True , color)
+    etudes = bigfont.render('Etudes superieur' , True , color)
+    metier = bigfont.render('Metiers' , True , color)
+    domicile = smallfont.render('Domicile:' , True , color)
+    transport = smallfont.render('Transport:' , True , color)
+    animal = smallfont.render('Animal de compagnie:' , True , color)
+    jeune = bigfont.render("Vous etes trop jeune pour aller a l'ecole!" , True , color) 
+    revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color) 
 
     # image
     persohomme=random.choice(imageshommes)
@@ -322,7 +346,6 @@ def principal_homme():
                     variableage = variableage+1
                     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
 
-                # ouverture page education
                 if 900 <= mouse[0] <= 900+200 and 300 <= mouse[1] <= 300+50:
                     edu=True
                     while edu:
@@ -337,13 +360,19 @@ def principal_homme():
                             pygame.draw.rect(fenetreedu,color_dark,[50,50,125,50])
                         fenetreedu.blit(retour , (60,50))
                         # titre
-                        pygame.draw.rect(fenetreedu,color_dark,[230,25,900,100])
-                        if variableage <= 18:
-                            fenetreedu.blit(enseignement , (550,50))
+                        if  variableage > 2:
+                            pygame.draw.rect(fenetreedu,color_dark,[230,25,900,100])
+                        if variableage <= 18 and variableage > 2:
+                            fenetreedu.blit(enseignement , (510,40))
                         elif variableage > 18 and variableage <= 23:
-                            fenetreedu.blit(etudes , (550,50))
+                            fenetreedu.blit(etudes , (500,40))
                         elif variableage > 23:
-                            fenetreedu.blit(metier , (625,50))
+                            fenetreedu.blit(metier , (590,40))
+                        # page
+                        pygame.draw.rect(fenetreedu,color_dark,[50,165,1080,600])
+                        if variableage < 3:
+                            fenetreedu.blit(jeune , (100,350))
+                            fenetreedu.blit(revenez , (200,450))
 
                         for event in pygame.event.get():
                             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -367,6 +396,12 @@ def principal_homme():
                         fenetreprop.blit(retour , (60,50))
                         # titre
                         pygame.draw.rect(fenetreprop,color_dark,[230,25,900,100])
+                        fenetreprop.blit(proprietebig , (580,40))
+                        # page
+                        pygame.draw.rect(fenetreprop,color_dark,[50,165,1080,600])
+                        fenetreprop.blit(domicile , (75,200))
+                        fenetreprop.blit(transport , (75,300))
+                        fenetreprop.blit(animal , (75,400))
 
 
                         for event in pygame.event.get():
