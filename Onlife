@@ -1,0 +1,336 @@
+#Importation des bibliotheques
+import pygame
+import pygame_menu
+import random
+from pygame.locals import *
+from pygame_menu import sound
+
+# Initialisation de pygame
+pygame.init()
+
+#Création de la fenêtre
+width = 1200
+height = 800
+background_colour = (255,153,153)
+fenetre = pygame.display.set_mode((width,height))
+fenetre.fill(background_colour)
+gamename = pygame.display.set_caption("Onlife")
+icon = pygame.image.load('icon.png').convert_alpha()
+iconfond =pygame.transform.scale(icon,(250,250))
+gameicon = pygame.display.set_icon(icon)
+
+
+# Noms
+nomsfemmes=["Clara Cuoghi","Aurélie Gallet"]
+nomshommes=["Rayane Dahmoul","Haroun Abidi"]
+
+# Images
+femme1=pygame.image.load('Femme1.png').convert_alpha()
+femme2=pygame.image.load('Femme2.png').convert_alpha()
+femme3=pygame.image.load('Femme3.png').convert_alpha()
+femme4=pygame.image.load('Femme4.png').convert_alpha()
+
+homme1=pygame.image.load('Homme1.png').convert_alpha()
+homme2=pygame.image.load('Homme2.png').convert_alpha()
+homme3=pygame.image.load('Homme3.png').convert_alpha()
+homme4=pygame.image.load('Homme4.png').convert_alpha()
+homme5=pygame.image.load('Homme5.png').convert_alpha()
+
+imagesfemmes=[femme1,femme2,femme3,femme4]
+imageshommes=[homme1,homme2,homme3,homme4,homme5]
+
+
+# Theme
+mytheme = pygame_menu.themes.THEME_DARK.copy()
+mytheme.background_color=(255,204,204)
+mytheme.title_background_color=(255,153,153)
+mytheme.title_bar_style=pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
+mytheme.title_font=pygame_menu.font.FONT_COMIC_NEUE
+mytheme.title_font_color=(0,0,0)
+mytheme.widget_font=pygame_menu.font.FONT_NEVIS
+mytheme.widget_font_color=(0,0,0)
+
+# Variable
+sexe = 0
+
+def start_the_game():
+    pygame.init()
+    ecran = pygame_menu.Menu(800, 1200, 'ONLIFE',theme=mytheme)
+    genre = ecran.add_image('femmehomme.png')
+    femme = ecran.add_button('Femme',principal_femme)
+    homme = ecran.add_button('Homme',principal_homme)
+
+    ecran.add_button('Retour',__intit__)
+    ecran.mainloop(fenetre)
+    return start_the_game
+
+
+#Fonction option a remplir
+def option_the_game():
+    return option_the_game
+
+def principal_femme():
+    principal(1)
+
+def principal_homme():
+    principal(2)
+
+#Boucle principale
+def principal(sexe):
+    #variables
+    variableage = 0
+    variableargent = 0
+
+    # couleur texte
+    color = (255,255,255)
+
+    # couleur clair
+    color_light = (170,170,170)
+
+    # couleur sombre
+    color_dark = (100,100,100)
+
+    # police
+    smallfont = pygame.font.SysFont('comicsansms',35)
+    bigfont = pygame.font.SysFont('comicsansms',50)
+
+    # texte
+    if sexe == 1:
+        nomfemme = smallfont.render('Nom: '+random.choice(nomsfemmes) , True , color)
+    elif sexe == 2:
+        nomhomme = smallfont.render('Nom: '+random.choice(nomshommes) , True , color)
+
+    age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+    education = smallfont.render('Education' , True , color)
+    propriete = smallfont.render('Propriété' , True , color)
+    proprietebig = bigfont.render('Propriété' , True , color)
+    bienetre = smallfont.render('Bien-être' , True , color)
+    retourmenu = smallfont.render('Retour' , True , color)
+    plus = smallfont.render('+' , True , color)
+    annee = smallfont.render('une année' , True , color)
+    retour = smallfont.render('retour' , True , color)
+    argent = bigfont.render(str(variableargent)+"  "+'€', True , color)
+    enseignement = bigfont.render('Enseignement' , True , color)
+    etudes = bigfont.render('Etudes supérieures' , True , color)
+    metier = bigfont.render('Métiers' , True , color)
+    domicile = smallfont.render('Domicile:' , True , color)
+    transport = smallfont.render('Transport:' , True , color)
+    animal = smallfont.render('Animal de compagnie:' , True , color)
+    jeune = bigfont.render("Vous êtes trop jeune pour aller à l'école!" , True , color)
+    revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color)
+    termine = bigfont.render("Vous avez atteint 100 ans, le jeu est terminé!" , True , color)
+
+    #image
+    if sexe == 1:
+        persofemme=random.choice(imagesfemmes)
+    elif sexe == 2:
+        persohomme=random.choice(imageshommes)
+
+    #Variable qui continue la boucle si = True, stoppe si = False
+    fin = False
+    edu=False
+    prop=False
+    bien=False
+    terminer=False
+
+    #Boucle infinie
+    while not fin:
+        fenetre.fill(background_colour)
+        pygame.draw.rect(fenetre, (255,204,204), pygame.Rect(50, 50, width-100, height-100))
+        fenetre.blit(iconfond, (500,210))
+        if sexe == 1:
+            fenetre.blit(persofemme, (20,250))
+        elif sexe == 2:
+            fenetre.blit(persohomme, (20,250))
+
+        # Position de la souris
+        mouse = pygame.mouse.get_pos()
+        for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
+            if event.type == QUIT:     #Si un de ces événements est de type QUIT
+                sexe = 0
+                fin = True      #On arrête la boucle
+                pygame.display.quit()
+            #verifie si la souris est cliquee
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                # variation de l'age
+                if 525 <= mouse[0] <= 525+200 and 510 <= mouse[1] <= 510+100:
+                    if variableage < 100:
+                        variableage = variableage+1
+                        age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+                    else:
+                        terminer= True
+                    while terminer:
+                        pygame.display.update()
+                        fenetretermine = pygame.display.set_mode((width,height))
+                        fenetretermine.fill(background_colour)
+                        mouse = pygame.mouse.get_pos()
+                        fenetretermine.blit(termine , (60,350))
+
+
+                # ouverture page education
+                if 900 <= mouse[0] <= 900+200 and 300 <= mouse[1] <= 300+50:
+                    edu=True
+                    while edu:
+                        pygame.display.update()
+                        fenetreedu = pygame.display.set_mode((width,height))
+                        fenetreedu.fill(background_colour)
+                        mouse = pygame.mouse.get_pos()
+                        #bouton retour
+                        if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                            pygame.draw.rect(fenetreedu,color_light,[50,50,125,50])
+                        else:
+                            pygame.draw.rect(fenetreedu,color_dark,[50,50,125,50])
+                        fenetreedu.blit(retour , (60,50))
+                        # titre
+                        if  variableage > 2:
+                            pygame.draw.rect(fenetreedu,color_dark,[230,25,900,100])
+                        if variableage <= 18 and variableage > 2:
+                            fenetreedu.blit(enseignement , (510,40))
+                        elif variableage > 18 and variableage <= 23:
+                            fenetreedu.blit(etudes , (460,40))
+                        elif variableage > 23:
+                            fenetreedu.blit(metier , (590,40))
+                        # page
+                        pygame.draw.rect(fenetreedu,color_dark,[50,165,1080,600])
+                        if variableage < 3:
+                            fenetreedu.blit(jeune , (100,350))
+                            fenetreedu.blit(revenez , (200,450))
+
+                        for event in pygame.event.get():
+                            if event.type == pygame.MOUSEBUTTONDOWN:
+                                if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                                    pygame.display.update()
+                                    edu=False
+
+                # ouverture page propriete
+                if 900 <= mouse[0] <= 900+200 and 400 <= mouse[1] <= 400+50:
+                    prop=True
+                    while prop:
+                        pygame.display.update()
+                        fenetreprop = pygame.display.set_mode((width,height))
+                        fenetreprop.fill(background_colour)
+                        mouse = pygame.mouse.get_pos()
+                        #bouton retour
+                        if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                            pygame.draw.rect(fenetreprop,color_light,[50,50,125,50])
+                        else:
+                            pygame.draw.rect(fenetreprop,color_dark,[50,50,125,50])
+                        fenetreprop.blit(retour , (60,50))
+                        # titre
+                        pygame.draw.rect(fenetreprop,color_dark,[230,25,900,100])
+                        fenetreprop.blit(proprietebig , (580,40))
+                        # page
+                        pygame.draw.rect(fenetreprop,color_dark,[50,165,1080,600])
+                        fenetreprop.blit(domicile , (75,200))
+                        fenetreprop.blit(transport , (75,300))
+                        fenetreprop.blit(animal , (75,400))
+
+
+                        for event in pygame.event.get():
+                            if event.type == pygame.MOUSEBUTTONDOWN:
+                                if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                                    pygame.display.update()
+                                    prop=False
+
+                # ouverture page bien-etre
+                if 900 <= mouse[0] <= 900+200 and 500 <= mouse[1] <= 500+50:
+                    bien=True
+                    while bien:
+                        pygame.display.update()
+                        fenetrebien = pygame.display.set_mode((width,height))
+                        fenetrebien.fill(background_colour)
+                        mouse = pygame.mouse.get_pos()
+                        #bouton retour
+                        if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                            pygame.draw.rect(fenetrebien,color_light,[50,50,125,50])
+                        else:
+                            pygame.draw.rect(fenetrebien,color_dark,[50,50,125,50])
+                        fenetrebien.blit(retour , (60,50))
+                        # titre
+                        pygame.draw.rect(fenetrebien,color_dark,[230,25,900,100])
+                        for event in pygame.event.get():
+                            if event.type == pygame.MOUSEBUTTONDOWN:
+                                if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
+                                    pygame.display.update()
+                                    bien=False
+                # bouton retour
+                if 900 <= mouse[0] <= 900+200 and 600 <= mouse[1] <= 600+50:
+                    sexe=0
+                    __intit__()
+
+        # bouton education
+        if 900 <= mouse[0] <= 900+200 and 300 <= mouse[1] <= 300+50:
+            pygame.draw.rect(fenetre,color_light,[900,300,200,50])
+        else:
+            pygame.draw.rect(fenetre,color_dark,[900,300,200,50])
+
+        # bouton propriete
+        if 900 <= mouse[0] <= 900+200 and 400 <= mouse[1] <= 400+50:
+            pygame.draw.rect(fenetre,color_light,[900,400,200,50])
+        else:
+            pygame.draw.rect(fenetre,color_dark,[900,400,200,50])
+
+        # bouton bien etre
+        if 900 <= mouse[0] <= 900+200 and 500 <= mouse[1] <= 500+50:
+            pygame.draw.rect(fenetre,color_light,[900,500,200,50])
+        else:
+            pygame.draw.rect(fenetre,color_dark,[900,500,200,50])
+
+        # bouton retour
+        if 900 <= mouse[0] <= 900+200 and 600 <= mouse[1] <= 600+50:
+            pygame.draw.rect(fenetre,color_light,[900,600,200,50])
+        else:
+            pygame.draw.rect(fenetre,color_dark,[900,600,200,50])
+
+        # bouton annee
+        if 525 <= mouse[0] <= 525+200 and 510 <= mouse[1] <= 510+100:
+            pygame.draw.rect(fenetre,color_light,[525,510,200,100])
+        else:
+            pygame.draw.rect(fenetre,color_dark,[525,510,200,100])
+
+        # identite sur rectangle par superposition
+        pygame.draw.rect(fenetre,color_dark,[70,100,365,100])
+        if sexe == 1:
+            fenetre.blit(nomfemme , (75,105))
+        elif sexe == 2:
+            fenetre.blit(nomhomme , (75,105))
+        fenetre.blit(age , (75,145))
+
+        # argent
+        pygame.draw.rect(fenetre,color_dark,[850,100,250,120])
+        fenetre.blit(argent , (865,125))
+
+        # texte sur bouton par superposition
+        fenetre.blit(plus , (615,510))
+        fenetre.blit(annee , (546,550))
+        fenetre.blit(education , (923,300))
+        fenetre.blit(propriete , (925,400))
+        fenetre.blit(bienetre , (922,500))
+        fenetre.blit(retourmenu , (945,600))
+
+        # updates the frames of the game
+        pygame.display.update()
+        pygame.display.flip()
+
+
+def __intit__():
+    menu = pygame_menu.Menu(800, 1200, 'ONLIFE',theme=mytheme)
+    logo= menu.add_image('icon.png')
+    menu.add_button('Jouer', start_the_game)
+    menu.add_button('Option', option_the_game)
+    menu.add_button('Quitter', pygame_menu.events.EXIT)
+    menu.mainloop(fenetre)
+    return __intit__()
+__intit__()
+
+
+
+continuer = 1
+while continuer:
+    for event in pygame.event.get():    #Attente des événements
+        if event.type == QUIT:
+            continuer = 0
+
+
+    #Rafraichissement
+    pygame.display.flip()
