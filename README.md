@@ -17,7 +17,7 @@ Les difficultés qu'il nous faut régler assez vite sont tout d'abord de trouver
 La seule chose qui pour l'instant sera impossible de faire c'est des barres de vie qui devaient consister à afficher le niveau d'intelligence, taux de bonheur etc. du personnage tout le long de sa vie. Pour l'instant nous avons décidé de le mettre de côté ce qui ne changera pas le principe du jeu. Nous devons également renoncer à offrir tous les choix que nous aurions voulu offrir (le choix de l'école, arrêter l'école en avance ou sauter des classes par exemple).
 
 ### Membres:
-<br>Aurelie Gallet
+<br>Aurélie Gallet
 <br>Clara Cuoghi
 <br>Haroun Habidi
 <br>Rayane Dahmoul
@@ -50,7 +50,7 @@ Incorporer les donnees -
 Faire le mini jeu - en cours
 Page propriete - 
 Page bien etre - 
-Ajout des accents -
+Ajout des accents - fait
 
 ### Document de formation à Jupyter
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/alphaaureus/NSIterm/master?filepath=presentation.ipynb)
