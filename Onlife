@@ -53,6 +53,13 @@ mytheme.widget_font_color=(0,0,0)
 # Variable
 sexe = 0
 
+#Dictionnaires pour la page enseignement
+dicomaternelle=["Ecole maternelle Béré","Ecole maternelle Le Coudray","Ecole maternelle Henri Bergson","Ecole maternelle Jules Ferry","Ecole maternelle Claude Monet","Ecole maternelle Prince Bois","Ecole maternelle Le Bourgeau","Ecole maternelle du Massif","Ecole maternelle Molière","Ecole maternelle du Centre"]
+dicoprimaire=["Ecole primaire Guillaume Apollinaire","Ecole primaire Michel Servet","Ecole primaire Albert Barraud","Ecoles primaire les Néréides","Ecole primaire Jean Jaurès","Ecole primaire Jacques Prévert","Ecole primaire Charles Perrault","Ecole primaire La Clé des Champs","Ecole primaire Les Nondales","Ecole primaire L'Arbre Enchanté"]
+dicocollege=["Collège Chaptal","Collège Plaisance","Collège Jean Giono","Collège les Fontainettes","Collège Victor Hugo","Collège des Trois Vallées","Collège la Sablière","Collège Antoine de Saint-Exupéry","Collège Claude Nicolas le Doux","Collège Les Franchises"]
+dicolycee=["Lycée Jean Rostand","Lycée Henri Vincenot","Lycée Camille Claudel","Lycée Pasteur","Lycée Gustave Eiffel","Lycée Voltaire","Lycée Parc des Loges","Lycée Martin Luther King","Lycée Honoré Romane","Lycée Jean Monnet"]
+dicouniversite=["Commerce","Ingénieur","Journalisme","Audiovisuel","Marketing","Management","Droit","Architecture","Médecine"]
+
 def start_the_game():
     pygame.init()
     ecran = pygame_menu.Menu(800, 1200, 'ONLIFE',theme=mytheme)
@@ -84,41 +91,47 @@ def principal(sexe):
     # couleur texte
     color = (255,255,255)
 
-    # couleur clair
+    # couleurs
     color_light = (170,170,170)
-
-    # couleur sombre
     color_dark = (100,100,100)
+    color_red = (255,000,000)
+    color_pink = (255,20,147)
 
     # police
     smallfont = pygame.font.SysFont('comicsansms',35)
     bigfont = pygame.font.SysFont('comicsansms',50)
 
-    # texte
+    # texte principal
     if sexe == 1:
         nomfemme = smallfont.render('Nom: '+random.choice(nomsfemmes) , True , color)
     elif sexe == 2:
         nomhomme = smallfont.render('Nom: '+random.choice(nomshommes) , True , color)
-
     age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
-    education = smallfont.render('Education' , True , color)
-    propriete = smallfont.render('Propriété' , True , color)
-    proprietebig = bigfont.render('Propriété' , True , color)
-    bienetre = smallfont.render('Bien-être' , True , color)
     retourmenu = smallfont.render('Retour' , True , color)
     plus = smallfont.render('+' , True , color)
     annee = smallfont.render('une année' , True , color)
     retour = smallfont.render('retour' , True , color)
     argent = bigfont.render(str(variableargent)+"  "+'€', True , color)
+    termine = bigfont.render("Vous avez atteint 100 ans, le jeu est terminé!" , True , color)
+    # texte education
+    education = smallfont.render('Education' , True , color)
     enseignement = bigfont.render('Enseignement' , True , color)
     etudes = bigfont.render('Etudes supérieures' , True , color)
     metier = bigfont.render('Métiers' , True , color)
+    jeune = bigfont.render("Vous êtes trop jeune pour aller à l'école!" , True , color)
+    revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color)
+    nommaternelle = smallfont.render(random.choice(dicomaternelle) , True , color)
+    nomprimaire = smallfont.render(random.choice(dicoprimaire) , True , color)
+    nomcollege = smallfont.render(random.choice(dicocollege) , True , color)
+    nomlycee = smallfont.render(random.choice(dicolycee) , True , color)
+    # texte propriete
+    propriete = smallfont.render('Propriété' , True , color)
+    proprietebig = bigfont.render('Propriété' , True , color)
     domicile = smallfont.render('Domicile:' , True , color)
     transport = smallfont.render('Transport:' , True , color)
     animal = smallfont.render('Animal de compagnie:' , True , color)
-    jeune = bigfont.render("Vous êtes trop jeune pour aller à l'école!" , True , color)
-    revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color)
-    termine = bigfont.render("Vous avez atteint 100 ans, le jeu est terminé!" , True , color)
+    # texte bien-etre
+    bienetre = smallfont.render('Bien-être' , True , color)
 
     #image
     if sexe == 1:
@@ -165,6 +178,13 @@ def principal(sexe):
                         fenetretermine.fill(background_colour)
                         mouse = pygame.mouse.get_pos()
                         fenetretermine.blit(termine , (60,350))
+                        #On parcours la liste de tous les événements reçus
+                        for event in pygame.event.get():
+                            #Si un de ces événements est de type QUIT
+                            if event.type == QUIT:
+                                terminer = False
+                                fin = True
+                                pygame.display.quit()
 
 
                 # ouverture page education
@@ -190,11 +210,57 @@ def principal(sexe):
                             fenetreedu.blit(etudes , (460,40))
                         elif variableage > 23:
                             fenetreedu.blit(metier , (590,40))
-                        # page
+                        # nom de l'etablissement
                         pygame.draw.rect(fenetreedu,color_dark,[50,165,1080,600])
                         if variableage < 3:
                             fenetreedu.blit(jeune , (100,350))
                             fenetreedu.blit(revenez , (200,450))
+                        if 2 < variableage < 7:
+                            fenetreedu.blit(nommaternelle , (100,200))
+                        if 6 < variableage < 12:
+                            fenetreedu.blit(nomprimaire , (100,200))
+                        if 11 < variableage < 16:
+                            fenetreedu.blit(nomcollege , (100,200))
+                        if 15 < variableage < 19:
+                            fenetreedu.blit(nomlycee , (100,200))
+                        # choix de l'universite
+                        if variableage == 19:
+                            if 200 <= mouse[0] <= 200+200 and 300 <= mouse[1] <= 300+50:
+                                pygame.draw.rect(fenetreedu,color_pink,[200,300,200,50])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_red,[200,300,200,50])
+                            if 500 <= mouse[0] <= 500+200 and 300 <= mouse[1] <= 300+50:
+                                pygame.draw.rect(fenetreedu,color_pink,[500,300,200,50])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_red,[500,300,200,50])
+                            if 800 <= mouse[0] <= 800+200 and 300 <= mouse[1] <= 300+50:
+                                pygame.draw.rect(fenetreedu,color_pink,[800,300,200,50])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_red,[800,300,200,50])
+                            if 200 <= mouse[0] <= 200+200 and 450 <= mouse[1] <= 450+50:
+                                pygame.draw.rect(fenetreedu,color_pink,[200,450,200,50])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_red,[200,450,200,50])
+                            if 500 <= mouse[0] <= 500+200 and 450 <= mouse[1] <= 300+50:
+                                pygame.draw.rect(fenetreedu,color_pink,[500,450,200,50])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_red,[500,450,200,50])
+                            if 800 <= mouse[0] <= 800+200 and 450 <= mouse[1] <= 450+50:
+                                pygame.draw.rect(fenetreedu,color_pink,[800,450,200,50])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_red,[800,450,200,50])
+                            if 200 <= mouse[0] <= 200+200 and 600 <= mouse[1] <= 600+50:
+                                pygame.draw.rect(fenetreedu,color_pink,[200,600,200,50])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_red,[200,600,200,50])
+                            if 500 <= mouse[0] <= 500+200 and 600 <= mouse[1] <= 600+50:
+                                pygame.draw.rect(fenetreedu,color_pink,[500,600,200,50])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_red,[500,600,200,50])
+                            if 800 <= mouse[0] <= 800+200 and 600 <= mouse[1] <= 600+50:
+                                pygame.draw.rect(fenetreedu,color_pink,[800,600,200,50])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_red,[800,600,200,50])
 
                         for event in pygame.event.get():
                             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -330,7 +396,5 @@ while continuer:
     for event in pygame.event.get():    #Attente des événements
         if event.type == QUIT:
             continuer = 0
-
-
     #Rafraichissement
     pygame.display.flip()
