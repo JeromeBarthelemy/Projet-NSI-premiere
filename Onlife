@@ -124,6 +124,16 @@ def principal(sexe):
     nomprimaire = smallfont.render(random.choice(dicoprimaire) , True , color)
     nomcollege = smallfont.render(random.choice(dicocollege) , True , color)
     nomlycee = smallfont.render(random.choice(dicolycee) , True , color)
+    nomuniversite1 = smallfont.render(dicouniversite[0] , True , color)
+    nomuniversite2 = smallfont.render(dicouniversite[1] , True , color)
+    nomuniversite3 = smallfont.render(dicouniversite[2] , True , color)
+    nomuniversite4 = smallfont.render(dicouniversite[3] , True , color)
+    nomuniversite5 = smallfont.render(dicouniversite[4] , True , color)
+    nomuniversite6 = smallfont.render(dicouniversite[5] , True , color)
+    nomuniversite7 = smallfont.render(dicouniversite[6] , True , color)
+    nomuniversite8 = smallfont.render(dicouniversite[7] , True , color)
+    nomuniversite9 = smallfont.render(dicouniversite[8] , True , color)
+
     # texte propriete
     propriete = smallfont.render('Propriété' , True , color)
     proprietebig = bigfont.render('Propriété' , True , color)
@@ -146,6 +156,9 @@ def principal(sexe):
     bien=False
     terminer=False
 
+    # Variable choix
+    choix = 0
+
     #Boucle infinie
     while not fin:
         fenetre.fill(background_colour)
@@ -160,7 +173,6 @@ def principal(sexe):
         mouse = pygame.mouse.get_pos()
         for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
             if event.type == QUIT:     #Si un de ces événements est de type QUIT
-                sexe = 0
                 fin = True      #On arrête la boucle
                 pygame.display.quit()
             #verifie si la souris est cliquee
@@ -223,50 +235,96 @@ def principal(sexe):
                             fenetreedu.blit(nomcollege , (100,200))
                         if 15 < variableage < 19:
                             fenetreedu.blit(nomlycee , (100,200))
-                        # choix de l'universite
+                        # boutons choix
                         if variableage == 19:
-                            if 200 <= mouse[0] <= 200+200 and 300 <= mouse[1] <= 300+50:
-                                pygame.draw.rect(fenetreedu,color_pink,[200,300,200,50])
+                            if 150 <= mouse[0] <= 150+250 and 350 <= mouse[1] <= 350+60:
+                                pygame.draw.rect(fenetreedu,color_pink,[150,350,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[200,300,200,50])
-                            if 500 <= mouse[0] <= 500+200 and 300 <= mouse[1] <= 300+50:
-                                pygame.draw.rect(fenetreedu,color_pink,[500,300,200,50])
+                                pygame.draw.rect(fenetreedu,color_red,[150,350,250,60])
+                            if 450 <= mouse[0] <= 450+250 and 350 <= mouse[1] <= 350+60:
+                                pygame.draw.rect(fenetreedu,color_pink,[450,350,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[500,300,200,50])
-                            if 800 <= mouse[0] <= 800+200 and 300 <= mouse[1] <= 300+50:
-                                pygame.draw.rect(fenetreedu,color_pink,[800,300,200,50])
+                                pygame.draw.rect(fenetreedu,color_red,[450,350,250,60])
+                            if 750 <= mouse[0] <= 750+250 and 350 <= mouse[1] <= 350+60:
+                                pygame.draw.rect(fenetreedu,color_pink,[750,350,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[800,300,200,50])
-                            if 200 <= mouse[0] <= 200+200 and 450 <= mouse[1] <= 450+50:
-                                pygame.draw.rect(fenetreedu,color_pink,[200,450,200,50])
+                                pygame.draw.rect(fenetreedu,color_red,[750,350,250,60])
+                            if 150 <= mouse[0] <= 150+250 and 500 <= mouse[1] <= 500+60:
+                                pygame.draw.rect(fenetreedu,color_pink,[150,500,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[200,450,200,50])
-                            if 500 <= mouse[0] <= 500+200 and 450 <= mouse[1] <= 300+50:
-                                pygame.draw.rect(fenetreedu,color_pink,[500,450,200,50])
+                                pygame.draw.rect(fenetreedu,color_red,[150,500,250,60])
+                            if 450 <= mouse[0] <= 450+250 and 500 <= mouse[1] <= 500+60:
+                                pygame.draw.rect(fenetreedu,color_pink,[450,500,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[500,450,200,50])
-                            if 800 <= mouse[0] <= 800+200 and 450 <= mouse[1] <= 450+50:
-                                pygame.draw.rect(fenetreedu,color_pink,[800,450,200,50])
+                                pygame.draw.rect(fenetreedu,color_red,[450,500,250,60])
+                            if 750 <= mouse[0] <= 750+250 and 500 <= mouse[1] <= 500+60:
+                                pygame.draw.rect(fenetreedu,color_pink,[750,500,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[800,450,200,50])
-                            if 200 <= mouse[0] <= 200+200 and 600 <= mouse[1] <= 600+50:
-                                pygame.draw.rect(fenetreedu,color_pink,[200,600,200,50])
+                                pygame.draw.rect(fenetreedu,color_red,[750,500,250,60])
+                            if 150 <= mouse[0] <= 150+250 and 650 <= mouse[1] <= 650+60:
+                                pygame.draw.rect(fenetreedu,color_pink,[150,650,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[200,600,200,50])
-                            if 500 <= mouse[0] <= 500+200 and 600 <= mouse[1] <= 600+50:
-                                pygame.draw.rect(fenetreedu,color_pink,[500,600,200,50])
+                                pygame.draw.rect(fenetreedu,color_red,[150,650,250,60])
+                            if 450 <= mouse[0] <= 450+250 and 650 <= mouse[1] <= 650+60:
+                                pygame.draw.rect(fenetreedu,color_pink,[450,650,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[500,600,200,50])
-                            if 800 <= mouse[0] <= 800+200 and 600 <= mouse[1] <= 600+50:
-                                pygame.draw.rect(fenetreedu,color_pink,[800,600,200,50])
+                                pygame.draw.rect(fenetreedu,color_red,[450,650,250,60])
+                            if 750 <= mouse[0] <= 750+250 and 650 <= mouse[1] <= 650+60:
+                                pygame.draw.rect(fenetreedu,color_pink,[750,650,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[800,600,200,50])
+                                pygame.draw.rect(fenetreedu,color_red,[750,650,250,60])
+
+                            #
+
+                            # superposition texte boutons
+                            fenetreedu.blit(nomuniversite1 , (195,355))
+                            fenetreedu.blit(nomuniversite2 , (500,355))
+                            fenetreedu.blit(nomuniversite3 , (780,355))
+                            fenetreedu.blit(nomuniversite4 , (185,505))
+                            fenetreedu.blit(nomuniversite5 , (495,505))
+                            fenetreedu.blit(nomuniversite6 , (775,505))
+                            fenetreedu.blit(nomuniversite7 , (230,655))
+                            fenetreedu.blit(nomuniversite8 , (468,655))
+                            fenetreedu.blit(nomuniversite9 , (795,655))
 
                         for event in pygame.event.get():
+                            if event.type == QUIT:     #Si un de ces événements est de type QUIT
+                                fin = True
+                                edu = False     #On arrête la boucle
+                                pygame.display.quit()
                             if event.type == pygame.MOUSEBUTTONDOWN:
                                 if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
                                     pygame.display.update()
                                     edu=False
+                                if 150 <= mouse[0] <= 150+250 and 350 <= mouse[1] <= 350+60:
+                                    choix = 1
+                                    print(choix)
+                                if 450 <= mouse[0] <= 450+250 and 350 <= mouse[1] <= 350+60:
+                                    choix = 2
+                                    print(choix)
+                                if 750 <= mouse[0] <= 750+250 and 350 <= mouse[1] <= 350+60:
+                                    choix = 3
+                                    print(choix)
+                                if 150 <= mouse[0] <= 150+250 and 500 <= mouse[1] <= 500+60:
+                                    choix = 4
+                                    print(choix)
+                                if 450 <= mouse[0] <= 450+250 and 500 <= mouse[1] <= 500+60:
+                                    choix = 5
+                                    print(choix)
+                                if 750 <= mouse[0] <= 750+250 and 500 <= mouse[1] <= 500+60:
+                                    choix = 6
+                                    print(choix)
+                                if 150 <= mouse[0] <= 150+250 and 650 <= mouse[1] <= 650+60:
+                                    choix = 7
+                                    print(choix)
+                                if 450 <= mouse[0] <= 450+250 and 650 <= mouse[1] <= 650+60:
+                                    choix = 8
+                                    print(choix)
+                                if 750 <= mouse[0] <= 750+250 and 650 <= mouse[1] <= 650+60:
+                                    choix = 9
+                                    print(choix)
+
+
 
                 # ouverture page propriete
                 if 900 <= mouse[0] <= 900+200 and 400 <= mouse[1] <= 400+50:
