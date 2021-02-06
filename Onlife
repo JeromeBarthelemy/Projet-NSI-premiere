@@ -94,8 +94,8 @@ def principal(sexe):
     # couleurs
     color_light = (170,170,170)
     color_dark = (100,100,100)
-    color_red = (255,000,000)
-    color_pink = (255,20,147)
+    color_dred = (220,20,60)
+    color_bred = (207,69,96)
 
     # police
     smallfont = pygame.font.SysFont('comicsansms',35)
@@ -240,41 +240,41 @@ def principal(sexe):
                         # boutons choix
                         if variableage == 19:
                             if 150 <= mouse[0] <= 150+250 and 350 <= mouse[1] <= 350+60:
-                                pygame.draw.rect(fenetreedu,color_pink,[150,350,250,60])
+                                pygame.draw.rect(fenetreedu,color_bred,[150,350,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[150,350,250,60])
+                                pygame.draw.rect(fenetreedu,color_dred,[150,350,250,60])
                             if 450 <= mouse[0] <= 450+250 and 350 <= mouse[1] <= 350+60:
-                                pygame.draw.rect(fenetreedu,color_pink,[450,350,250,60])
+                                pygame.draw.rect(fenetreedu,color_bred,[450,350,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[450,350,250,60])
+                                pygame.draw.rect(fenetreedu,color_dred,[450,350,250,60])
                             if 750 <= mouse[0] <= 750+250 and 350 <= mouse[1] <= 350+60:
-                                pygame.draw.rect(fenetreedu,color_pink,[750,350,250,60])
+                                pygame.draw.rect(fenetreedu,color_bred,[750,350,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[750,350,250,60])
+                                pygame.draw.rect(fenetreedu,color_dred,[750,350,250,60])
                             if 150 <= mouse[0] <= 150+250 and 500 <= mouse[1] <= 500+60:
-                                pygame.draw.rect(fenetreedu,color_pink,[150,500,250,60])
+                                pygame.draw.rect(fenetreedu,color_bred,[150,500,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[150,500,250,60])
+                                pygame.draw.rect(fenetreedu,color_dred,[150,500,250,60])
                             if 450 <= mouse[0] <= 450+250 and 500 <= mouse[1] <= 500+60:
-                                pygame.draw.rect(fenetreedu,color_pink,[450,500,250,60])
+                                pygame.draw.rect(fenetreedu,color_bred,[450,500,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[450,500,250,60])
+                                pygame.draw.rect(fenetreedu,color_dred,[450,500,250,60])
                             if 750 <= mouse[0] <= 750+250 and 500 <= mouse[1] <= 500+60:
-                                pygame.draw.rect(fenetreedu,color_pink,[750,500,250,60])
+                                pygame.draw.rect(fenetreedu,color_bred,[750,500,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[750,500,250,60])
+                                pygame.draw.rect(fenetreedu,color_dred,[750,500,250,60])
                             if 150 <= mouse[0] <= 150+250 and 650 <= mouse[1] <= 650+60:
-                                pygame.draw.rect(fenetreedu,color_pink,[150,650,250,60])
+                                pygame.draw.rect(fenetreedu,color_bred,[150,650,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[150,650,250,60])
+                                pygame.draw.rect(fenetreedu,color_dred,[150,650,250,60])
                             if 450 <= mouse[0] <= 450+250 and 650 <= mouse[1] <= 650+60:
-                                pygame.draw.rect(fenetreedu,color_pink,[450,650,250,60])
+                                pygame.draw.rect(fenetreedu,color_bred,[450,650,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[450,650,250,60])
+                                pygame.draw.rect(fenetreedu,color_dred,[450,650,250,60])
                             if 750 <= mouse[0] <= 750+250 and 650 <= mouse[1] <= 650+60:
-                                pygame.draw.rect(fenetreedu,color_pink,[750,650,250,60])
+                                pygame.draw.rect(fenetreedu,color_bred,[750,650,250,60])
                             else:
-                                pygame.draw.rect(fenetreedu,color_red,[750,650,250,60])
+                                pygame.draw.rect(fenetreedu,color_dred,[750,650,250,60])
 
                             # texte faire un choix
                             fenetreedu.blit(faireunchoix , (250,225))
