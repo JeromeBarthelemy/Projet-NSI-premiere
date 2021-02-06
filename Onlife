@@ -88,7 +88,7 @@ def principal(sexe):
     variableage = 0
     variableargent = 0
 
-    # couleur texte
+    # couleur blanche texte
     color = (255,255,255)
 
     # couleurs
@@ -124,6 +124,7 @@ def principal(sexe):
     nomprimaire = smallfont.render(random.choice(dicoprimaire) , True , color)
     nomcollege = smallfont.render(random.choice(dicocollege) , True , color)
     nomlycee = smallfont.render(random.choice(dicolycee) , True , color)
+    faireunchoix = smallfont.render("Choisissez votre spécialité:" , True , color)
     nomuniversite1 = smallfont.render(dicouniversite[0] , True , color)
     nomuniversite2 = smallfont.render(dicouniversite[1] , True , color)
     nomuniversite3 = smallfont.render(dicouniversite[2] , True , color)
@@ -155,9 +156,6 @@ def principal(sexe):
     prop=False
     bien=False
     terminer=False
-
-    # Variable choix
-    choix = 0
 
     #Boucle infinie
     while not fin:
@@ -202,6 +200,8 @@ def principal(sexe):
                 # ouverture page education
                 if 900 <= mouse[0] <= 900+200 and 300 <= mouse[1] <= 300+50:
                     edu=True
+                    choix=""
+                    nomduchoix = smallfont.render(choix , True , color)
                     while edu:
                         pygame.display.update()
                         fenetreedu = pygame.display.set_mode((width,height))
@@ -274,7 +274,8 @@ def principal(sexe):
                             else:
                                 pygame.draw.rect(fenetreedu,color_red,[750,650,250,60])
 
-                            #
+                            # texte faire un choix
+                            fenetreedu.blit(faireunchoix , (250,225))
 
                             # superposition texte boutons
                             fenetreedu.blit(nomuniversite1 , (195,355))
@@ -293,36 +294,39 @@ def principal(sexe):
                                 edu = False     #On arrête la boucle
                                 pygame.display.quit()
                             if event.type == pygame.MOUSEBUTTONDOWN:
+                                # detection de selection des boutons
                                 if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
                                     pygame.display.update()
                                     edu=False
                                 if 150 <= mouse[0] <= 150+250 and 350 <= mouse[1] <= 350+60:
-                                    choix = 1
-                                    print(choix)
+                                    choix = dicouniversite[0]
+                                    nomduchoix = smallfont.render(choix , True , color)
                                 if 450 <= mouse[0] <= 450+250 and 350 <= mouse[1] <= 350+60:
-                                    choix = 2
-                                    print(choix)
+                                    choix = dicouniversite[1]
+                                    nomduchoix = smallfont.render(choix , True , color)
                                 if 750 <= mouse[0] <= 750+250 and 350 <= mouse[1] <= 350+60:
-                                    choix = 3
-                                    print(choix)
+                                    choix = dicouniversite[2]
+                                    nomduchoix = smallfont.render(choix , True , color)
                                 if 150 <= mouse[0] <= 150+250 and 500 <= mouse[1] <= 500+60:
-                                    choix = 4
-                                    print(choix)
+                                    choix = dicouniversite[3]
+                                    nomduchoix = smallfont.render(choix , True , color)
                                 if 450 <= mouse[0] <= 450+250 and 500 <= mouse[1] <= 500+60:
-                                    choix = 5
-                                    print(choix)
+                                    choix = dicouniversite[4]
+                                    nomduchoix = smallfont.render(choix , True , color)
                                 if 750 <= mouse[0] <= 750+250 and 500 <= mouse[1] <= 500+60:
-                                    choix = 6
-                                    print(choix)
+                                    choix = dicouniversite[5]
+                                    nomduchoix = smallfont.render(choix , True , color)
                                 if 150 <= mouse[0] <= 150+250 and 650 <= mouse[1] <= 650+60:
-                                    choix = 7
-                                    print(choix)
+                                    choix = dicouniversite[6]
+                                    nomduchoix = smallfont.render(choix , True , color)
                                 if 450 <= mouse[0] <= 450+250 and 650 <= mouse[1] <= 650+60:
-                                    choix = 8
-                                    print(choix)
+                                    choix = dicouniversite[7]
+                                    nomduchoix = smallfont.render(choix , True , color)
                                 if 750 <= mouse[0] <= 750+250 and 650 <= mouse[1] <= 650+60:
-                                    choix = 9
-                                    print(choix)
+                                    choix = dicouniversite[8]
+                                    nomduchoix = smallfont.render(choix , True , color)
+
+                        fenetreedu.blit(nomduchoix , (725,225))
 
 
 
