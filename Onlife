@@ -157,6 +157,9 @@ def principal(sexe):
     bien=False
     terminer=False
 
+    # Variable pour la specialite
+    choix=""
+
     #Boucle infinie
     while not fin:
         fenetre.fill(background_colour)
@@ -200,7 +203,6 @@ def principal(sexe):
                 # ouverture page education
                 if 900 <= mouse[0] <= 900+200 and 300 <= mouse[1] <= 300+50:
                     edu=True
-                    choix=""
                     nomduchoix = smallfont.render(choix , True , color)
                     while edu:
                         pygame.display.update()
