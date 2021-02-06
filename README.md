@@ -5,7 +5,11 @@ Application du type "jeu de role" ou l'utilisateur se met dans la peau d'un pers
 <br>Trello pour s'organiser: https://trello.com/b/nQkLOTQe
 
 ### Professeur:
-Downloader toutes les images dans le folder images et ouvrir le fichier "Onlife". Pour l'instant il y a un menu avec les boutons jouer et quitter qui marchent. Le bouton jouer nous emmène à un menu pour sélectionner le sexe. En fonction du sexe choisi, une page principale s'ouvrira avec un personnage aléatoire. Le nom est aussi aléatoire et en fonction du sexe. Il varie entre les noms des 4 personnes du groupe. Il est possible d'appuyer sur les boutons bien être, études et propriétés qui vous ouvriront, chacun, une autre fenêtre (qu'il nous faut encore personnaliser), il sera possible de fermer ces fenêtres avec le bouton pour vous ramener à la page principale. Il est également possible d'appuyer sur le bouton "+ une année" pour avancer dans le jeu ce qui va changer l'âge dans le cadre en haut à gauche de la page principale. La fenêtre éducation possède un titre qui change en fonction de l'âge, par exemple a 19 ans, le titre change d'enseignement" à "études supérieures".
+Downloader toutes les images dans le folder images et ouvrir le fichier "Onlife". Pour l'instant il y a un menu avec les boutons jouer et quitter qui marchent. 
+
+Le bouton jouer nous emmène à un menu pour sélectionner le sexe. En fonction du sexe choisi, une page principale s'ouvrira avec un personnage aléatoire. Le nom est aussi aléatoire et en fonction du sexe. Il varie entre les noms des 4 personnes du groupe. Il est possible d'appuyer sur les boutons bien être, études et propriétés qui vous ouvriront, chacun, une autre fenêtre (qu'il nous faut encore personnaliser), il sera possible de fermer ces fenêtres avec le bouton pour vous ramener à la page principale. Il est également possible d'appuyer sur le bouton "+ une année" pour avancer dans le jeu ce qui va changer l'âge dans le cadre en haut à gauche de la page principale. 
+
+La fenêtre éducation possède un titre qui change en fonction de l'âge, par exemple à 19 ans, le titre change d'enseignement" à "études supérieures". Des noms d'écoles sont affichés aléatoirement parmis les noms des dictionnaires. Puis en début d'université vous pouvez choisir votre spécialité. Vous aurez ainsi trois choix de métiers en fonction de la spéciallité choisie (cette partie n'est pas encore codée).
 
 ### Quelles sont celles qui ont été surmontées ?
 On a eu beaucoup de difficultés au début pour se mettre d'accord sur le jeu et la base du projet, on a pris quelques séances à se mettre d'accord . On avait tous un niveau assez bas en programmation et en plus de ça on ne connaissait pas du tout pygame. On a donc dû regarder de nombreux sites internet et des vidéos pour comprendre son fonctionnement et ses capacités. Une fois qu'on connaissait un peu les rudiments de la bibliothèque pygame on a eu quelques difficultés pour s'organiser, les garçons travaillaient beaucoup de leur côté à l'internat tandis que les filles essayaient de travailler ensemble pendant les cours. On n'était pas vraiment organisé par rapport à ce que faisait l'autre partie du groupe mais avec quelques séances d'entrainement on a réussi à travailler tous ensemble en s'aidant mutuellement. Pendant les séances en présentielles on arrivait plutôt bien à travailler mais pendant les séances à la maison c'était plus compliqué de s'organiser car il était plus compliqué de se montrer les codes qu'on programmait étant donné qu'on n'avait pas d'interaction physique, il fallait s'envoyer des photos de ce qu'on faisait où le mettre tout de suite sur github ce qui ralentissait légèrement l'avancée. Au niveau de la programmation on a eu un peu de mal pour coder l'ouverture d'une deuxième fenêtre, quand on trouvait un programme sur internet pour nous aider il était assez compliqué, donc on a dû le refaire de façon plus simple. 
@@ -44,13 +48,11 @@ Haroun----- Code le mini-jeu et certaines parties
 Rayane----- Code du menu et code de certains éléments
 
 ### A faire:
-Age maximum (fin du jeu) - fait
 Rechercher les donnees pour la fenetre education - en cours
-Incorporer les donnees - 
+Incorporer les donnees - en cours
 Faire le mini jeu - en cours
 Page propriete - 
 Page bien etre - 
-Ajout des accents - fait
 
 ### Document de formation à Jupyter
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/alphaaureus/NSIterm/master?filepath=presentation.ipynb)
