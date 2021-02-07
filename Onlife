@@ -58,7 +58,8 @@ listematernelle=["Ecole maternelle Béré","Ecole maternelle Le Coudray","Ecole 
 listeprimaire=["Ecole primaire Guillaume Apollinaire","Ecole primaire Michel Servet","Ecole primaire Albert Barraud","Ecoles primaire les Néréides","Ecole primaire Jean Jaurès","Ecole primaire Jacques Prévert","Ecole primaire Charles Perrault","Ecole primaire La Clé des Champs","Ecole primaire Les Nondales","Ecole primaire L'Arbre Enchanté"]
 listecollege=["Collège Chaptal","Collège Plaisance","Collège Jean Giono","Collège les Fontainettes","Collège Victor Hugo","Collège des Trois Vallées","Collège la Sablière","Collège Antoine de Saint-Exupéry","Collège Claude Nicolas le Doux","Collège Les Franchises"]
 listelycee=["Lycée Jean Rostand","Lycée Henri Vincenot","Lycée Camille Claudel","Lycée Pasteur","Lycée Gustave Eiffel","Lycée Voltaire","Lycée Parc des Loges","Lycée Martin Luther King","Lycée Honoré Romane","Lycée Jean Monnet"]
-listeuniversite=["Commerce","Ingénieur","Littérature","Audiovisuel","Marketing","Management","Droit","Architecture","Médecine"]
+listeuniversite=["Commerce","Ingénieur","Lettres","Arts","Politique","Sc.Sociales","Droit","Architecture","Médecine"]
+listemetiers=[]
 
 def start_the_game():
     pygame.init()
@@ -161,6 +162,7 @@ def principal(sexe):
     elif sexe == 2:
         persohomme=random.choice(imageshommes)
 
+
     #Boucle infinie
     while not fin:
         fenetre.fill(background_colour)
@@ -179,6 +181,7 @@ def principal(sexe):
                 pygame.display.quit()
             #verifie si la souris est cliquee
             if event.type == pygame.MOUSEBUTTONDOWN:
+
                 # ouverture page education
                 if 900 <= mouse[0] <= 900+200 and 300 <= mouse[1] <= 300+50:
                     edu=True
@@ -257,12 +260,16 @@ def principal(sexe):
                         if variableage < 3:
                             fenetreedu.blit(jeune , (100,350))
                             fenetreedu.blit(revenez , (200,450))
+                        # maternelle
                         if 2 < variableage < 7:
                             fenetreedu.blit(nommaternelle , (100,200))
+                        # primaire
                         if 6 < variableage < 12:
                             fenetreedu.blit(nomprimaire , (100,200))
+                        # college
                         if 11 < variableage < 16:
                             fenetreedu.blit(nomcollege , (100,200))
+                        # lycee
                         if 15 < variableage < 19:
                             fenetreedu.blit(nomlycee , (100,200))
                         # boutons choix
@@ -308,12 +315,12 @@ def principal(sexe):
                             fenetreedu.blit(faireunchoix , (250,225))
 
                             # superposition texte boutons
-                            fenetreedu.blit(nomuniversite1 , (195,355))
+                            fenetreedu.blit(nomuniversite1 , (192,355))
                             fenetreedu.blit(nomuniversite2 , (500,355))
-                            fenetreedu.blit(nomuniversite3 , (785,355))
-                            fenetreedu.blit(nomuniversite4 , (185,505))
-                            fenetreedu.blit(nomuniversite5 , (495,505))
-                            fenetreedu.blit(nomuniversite6 , (775,505))
+                            fenetreedu.blit(nomuniversite3 , (815,355))
+                            fenetreedu.blit(nomuniversite4 , (230,505))
+                            fenetreedu.blit(nomuniversite5 , (510,505))
+                            fenetreedu.blit(nomuniversite6 , (785,505))
                             fenetreedu.blit(nomuniversite7 , (230,655))
                             fenetreedu.blit(nomuniversite8 , (468,655))
                             fenetreedu.blit(nomuniversite9 , (795,655))
@@ -323,6 +330,10 @@ def principal(sexe):
 
                         # universite
                         if variableage > 19 and variableage <= 23:
+                            fenetreedu.blit(specialite , (100,200))
+
+                        # metiers
+                        if variableage == 24:
                             fenetreedu.blit(specialite , (100,200))
 
 
