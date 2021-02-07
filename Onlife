@@ -179,28 +179,6 @@ def principal(sexe):
                 pygame.display.quit()
             #verifie si la souris est cliquee
             if event.type == pygame.MOUSEBUTTONDOWN:
-                # variation de l'age
-                if 525 <= mouse[0] <= 525+200 and 510 <= mouse[1] <= 510+100:
-                    if variableage < 100:
-                        variableage = variableage+1
-                        age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
-                    else:
-                        terminer= True
-                    while terminer:
-                        pygame.display.update()
-                        fenetretermine = pygame.display.set_mode((width,height))
-                        fenetretermine.fill(background_colour)
-                        mouse = pygame.mouse.get_pos()
-                        fenetretermine.blit(termine , (60,350))
-                        #On parcours la liste de tous les événements reçus
-                        for event in pygame.event.get():
-                            #Si un de ces événements est de type QUIT
-                            if event.type == QUIT:
-                                terminer = False
-                                fin = True
-                                pygame.display.quit()
-
-
                 # ouverture page education
                 if 900 <= mouse[0] <= 900+200 and 300 <= mouse[1] <= 300+50:
                     edu=True
@@ -332,7 +310,7 @@ def principal(sexe):
                             # superposition texte boutons
                             fenetreedu.blit(nomuniversite1 , (195,355))
                             fenetreedu.blit(nomuniversite2 , (500,355))
-                            fenetreedu.blit(nomuniversite3 , (780,355))
+                            fenetreedu.blit(nomuniversite3 , (785,355))
                             fenetreedu.blit(nomuniversite4 , (185,505))
                             fenetreedu.blit(nomuniversite5 , (495,505))
                             fenetreedu.blit(nomuniversite6 , (775,505))
@@ -400,6 +378,34 @@ def principal(sexe):
                                 if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
                                     pygame.display.update()
                                     bien=False
+
+                # variation de l'age
+                if 525 <= mouse[0] <= 525+200 and 510 <= mouse[1] <= 510+100:
+                    if variableage < 100:
+                        if variableage == 19 and choix == "":
+                            print("erreur")
+                        if variableage == 19 and choix != "":
+                            variableage = variableage+1
+                            age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+                        elif variableage < 19 or variableage > 19:
+                            variableage = variableage+1
+                            age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+                    else:
+                        terminer= True
+                    while terminer:
+                        pygame.display.update()
+                        fenetretermine = pygame.display.set_mode((width,height))
+                        fenetretermine.fill(background_colour)
+                        mouse = pygame.mouse.get_pos()
+                        fenetretermine.blit(termine , (60,350))
+                        #On parcours la liste de tous les événements reçus
+                        for event in pygame.event.get():
+                            #Si un de ces événements est de type QUIT
+                            if event.type == QUIT:
+                                terminer = False
+                                fin = True
+                                pygame.display.quit()
+
                 # bouton retour
                 if 900 <= mouse[0] <= 900+200 and 600 <= mouse[1] <= 600+50:
                     sexe=0
