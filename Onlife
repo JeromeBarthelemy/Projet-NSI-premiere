@@ -54,11 +54,11 @@ mytheme.widget_font_color=(0,0,0)
 sexe = 0
 
 #Dictionnaires pour la page enseignement
-dicomaternelle=["Ecole maternelle Béré","Ecole maternelle Le Coudray","Ecole maternelle Henri Bergson","Ecole maternelle Jules Ferry","Ecole maternelle Claude Monet","Ecole maternelle Prince Bois","Ecole maternelle Le Bourgeau","Ecole maternelle du Massif","Ecole maternelle Molière","Ecole maternelle du Centre"]
-dicoprimaire=["Ecole primaire Guillaume Apollinaire","Ecole primaire Michel Servet","Ecole primaire Albert Barraud","Ecoles primaire les Néréides","Ecole primaire Jean Jaurès","Ecole primaire Jacques Prévert","Ecole primaire Charles Perrault","Ecole primaire La Clé des Champs","Ecole primaire Les Nondales","Ecole primaire L'Arbre Enchanté"]
-dicocollege=["Collège Chaptal","Collège Plaisance","Collège Jean Giono","Collège les Fontainettes","Collège Victor Hugo","Collège des Trois Vallées","Collège la Sablière","Collège Antoine de Saint-Exupéry","Collège Claude Nicolas le Doux","Collège Les Franchises"]
-dicolycee=["Lycée Jean Rostand","Lycée Henri Vincenot","Lycée Camille Claudel","Lycée Pasteur","Lycée Gustave Eiffel","Lycée Voltaire","Lycée Parc des Loges","Lycée Martin Luther King","Lycée Honoré Romane","Lycée Jean Monnet"]
-dicouniversite=["Commerce","Ingénieur","Journalisme","Audiovisuel","Marketing","Management","Droit","Architecture","Médecine"]
+listematernelle=["Ecole maternelle Béré","Ecole maternelle Le Coudray","Ecole maternelle Henri Bergson","Ecole maternelle Jules Ferry","Ecole maternelle Claude Monet","Ecole maternelle Prince Bois","Ecole maternelle Le Bourgeau","Ecole maternelle du Massif","Ecole maternelle Molière","Ecole maternelle du Centre"]
+listeprimaire=["Ecole primaire Guillaume Apollinaire","Ecole primaire Michel Servet","Ecole primaire Albert Barraud","Ecoles primaire les Néréides","Ecole primaire Jean Jaurès","Ecole primaire Jacques Prévert","Ecole primaire Charles Perrault","Ecole primaire La Clé des Champs","Ecole primaire Les Nondales","Ecole primaire L'Arbre Enchanté"]
+listecollege=["Collège Chaptal","Collège Plaisance","Collège Jean Giono","Collège les Fontainettes","Collège Victor Hugo","Collège des Trois Vallées","Collège la Sablière","Collège Antoine de Saint-Exupéry","Collège Claude Nicolas le Doux","Collège Les Franchises"]
+listelycee=["Lycée Jean Rostand","Lycée Henri Vincenot","Lycée Camille Claudel","Lycée Pasteur","Lycée Gustave Eiffel","Lycée Voltaire","Lycée Parc des Loges","Lycée Martin Luther King","Lycée Honoré Romane","Lycée Jean Monnet"]
+listeuniversite=["Commerce","Ingénieur","Littérature","Audiovisuel","Marketing","Management","Droit","Architecture","Médecine"]
 
 def start_the_game():
     pygame.init()
@@ -87,6 +87,16 @@ def principal(sexe):
     #variables
     variableage = 0
     variableargent = 0
+
+    #Variable qui continue la boucle si = True, stoppe si = False
+    fin = False
+    edu=False
+    prop=False
+    bien=False
+    terminer=False
+
+    # Variable pour la specialite
+    choix=""
 
     # couleur blanche texte
     color = (255,255,255)
@@ -120,20 +130,21 @@ def principal(sexe):
     metier = bigfont.render('Métiers' , True , color)
     jeune = bigfont.render("Vous êtes trop jeune pour aller à l'école!" , True , color)
     revenez = bigfont.render("Revenez quand vous aurez 3 ans!" , True , color)
-    nommaternelle = smallfont.render(random.choice(dicomaternelle) , True , color)
-    nomprimaire = smallfont.render(random.choice(dicoprimaire) , True , color)
-    nomcollege = smallfont.render(random.choice(dicocollege) , True , color)
-    nomlycee = smallfont.render(random.choice(dicolycee) , True , color)
+    nommaternelle = smallfont.render(random.choice(listematernelle) , True , color)
+    nomprimaire = smallfont.render(random.choice(listeprimaire) , True , color)
+    nomcollege = smallfont.render(random.choice(listecollege) , True , color)
+    nomlycee = smallfont.render(random.choice(listelycee) , True , color)
     faireunchoix = smallfont.render("Choisissez votre spécialité:" , True , color)
-    nomuniversite1 = smallfont.render(dicouniversite[0] , True , color)
-    nomuniversite2 = smallfont.render(dicouniversite[1] , True , color)
-    nomuniversite3 = smallfont.render(dicouniversite[2] , True , color)
-    nomuniversite4 = smallfont.render(dicouniversite[3] , True , color)
-    nomuniversite5 = smallfont.render(dicouniversite[4] , True , color)
-    nomuniversite6 = smallfont.render(dicouniversite[5] , True , color)
-    nomuniversite7 = smallfont.render(dicouniversite[6] , True , color)
-    nomuniversite8 = smallfont.render(dicouniversite[7] , True , color)
-    nomuniversite9 = smallfont.render(dicouniversite[8] , True , color)
+    nomuniversite1 = smallfont.render(listeuniversite[0] , True , color)
+    nomuniversite2 = smallfont.render(listeuniversite[1] , True , color)
+    nomuniversite3 = smallfont.render(listeuniversite[2] , True , color)
+    nomuniversite4 = smallfont.render(listeuniversite[3] , True , color)
+    nomuniversite5 = smallfont.render(listeuniversite[4] , True , color)
+    nomuniversite6 = smallfont.render(listeuniversite[5] , True , color)
+    nomuniversite7 = smallfont.render(listeuniversite[6] , True , color)
+    nomuniversite8 = smallfont.render(listeuniversite[7] , True , color)
+    nomuniversite9 = smallfont.render(listeuniversite[8] , True , color)
+    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
 
     # texte propriete
     propriete = smallfont.render('Propriété' , True , color)
@@ -150,15 +161,6 @@ def principal(sexe):
     elif sexe == 2:
         persohomme=random.choice(imageshommes)
 
-    #Variable qui continue la boucle si = True, stoppe si = False
-    fin = False
-    edu=False
-    prop=False
-    bien=False
-    terminer=False
-
-    # Variable pour la specialite
-    choix=""
 
     #Boucle infinie
     while not fin:
@@ -178,27 +180,6 @@ def principal(sexe):
                 pygame.display.quit()
             #verifie si la souris est cliquee
             if event.type == pygame.MOUSEBUTTONDOWN:
-                # variation de l'age
-                if 525 <= mouse[0] <= 525+200 and 510 <= mouse[1] <= 510+100:
-                    if variableage < 100:
-                        variableage = variableage+1
-                        age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
-                    else:
-                        terminer= True
-                    while terminer:
-                        pygame.display.update()
-                        fenetretermine = pygame.display.set_mode((width,height))
-                        fenetretermine.fill(background_colour)
-                        mouse = pygame.mouse.get_pos()
-                        fenetretermine.blit(termine , (60,350))
-                        #On parcours la liste de tous les événements reçus
-                        for event in pygame.event.get():
-                            #Si un de ces événements est de type QUIT
-                            if event.type == QUIT:
-                                terminer = False
-                                fin = True
-                                pygame.display.quit()
-
 
                 # ouverture page education
                 if 900 <= mouse[0] <= 900+200 and 300 <= mouse[1] <= 300+50:
@@ -222,32 +203,41 @@ def principal(sexe):
                                     pygame.display.update()
                                     edu=False
                                 if 150 <= mouse[0] <= 150+250 and 350 <= mouse[1] <= 350+60:
-                                    choix = dicouniversite[0]
+                                    choix = listeuniversite[0]
                                     nomduchoix = smallfont.render(choix , True , color)
+                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
                                 if 450 <= mouse[0] <= 450+250 and 350 <= mouse[1] <= 350+60:
-                                    choix = dicouniversite[1]
+                                    choix = listeuniversite[1]
                                     nomduchoix = smallfont.render(choix , True , color)
+                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
                                 if 750 <= mouse[0] <= 750+250 and 350 <= mouse[1] <= 350+60:
-                                    choix = dicouniversite[2]
+                                    choix = listeuniversite[2]
                                     nomduchoix = smallfont.render(choix , True , color)
+                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
                                 if 150 <= mouse[0] <= 150+250 and 500 <= mouse[1] <= 500+60:
-                                    choix = dicouniversite[3]
+                                    choix = listeuniversite[3]
                                     nomduchoix = smallfont.render(choix , True , color)
+                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
                                 if 450 <= mouse[0] <= 450+250 and 500 <= mouse[1] <= 500+60:
-                                    choix = dicouniversite[4]
+                                    choix = listeuniversite[4]
                                     nomduchoix = smallfont.render(choix , True , color)
+                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
                                 if 750 <= mouse[0] <= 750+250 and 500 <= mouse[1] <= 500+60:
-                                    choix = dicouniversite[5]
+                                    choix = listeuniversite[5]
                                     nomduchoix = smallfont.render(choix , True , color)
+                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
                                 if 150 <= mouse[0] <= 150+250 and 650 <= mouse[1] <= 650+60:
-                                    choix = dicouniversite[6]
+                                    choix = listeuniversite[6]
                                     nomduchoix = smallfont.render(choix , True , color)
+                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
                                 if 450 <= mouse[0] <= 450+250 and 650 <= mouse[1] <= 650+60:
-                                    choix = dicouniversite[7]
+                                    choix = listeuniversite[7]
                                     nomduchoix = smallfont.render(choix , True , color)
+                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
                                 if 750 <= mouse[0] <= 750+250 and 650 <= mouse[1] <= 650+60:
-                                    choix = dicouniversite[8]
+                                    choix = listeuniversite[8]
                                     nomduchoix = smallfont.render(choix , True , color)
+                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
 
                         #bouton retour
                         if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
@@ -269,12 +259,16 @@ def principal(sexe):
                         if variableage < 3:
                             fenetreedu.blit(jeune , (100,350))
                             fenetreedu.blit(revenez , (200,450))
+                        # maternelle
                         if 2 < variableage < 7:
                             fenetreedu.blit(nommaternelle , (100,200))
+                        # primaire
                         if 6 < variableage < 12:
                             fenetreedu.blit(nomprimaire , (100,200))
+                        # college
                         if 11 < variableage < 16:
                             fenetreedu.blit(nomcollege , (100,200))
+                        # lycee
                         if 15 < variableage < 19:
                             fenetreedu.blit(nomlycee , (100,200))
                         # boutons choix
@@ -333,7 +327,9 @@ def principal(sexe):
                             # texte nom du choix
                             fenetreedu.blit(nomduchoix , (725,225))
 
-
+                        # universite
+                        if variableage > 19 and variableage <= 23:
+                            fenetreedu.blit(specialite , (100,200))                       
 
                 # ouverture page propriete
                 if 900 <= mouse[0] <= 900+200 and 400 <= mouse[1] <= 400+50:
@@ -386,6 +382,33 @@ def principal(sexe):
                                 if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
                                     pygame.display.update()
                                     bien=False
+                # variation de l'age
+                if 525 <= mouse[0] <= 525+200 and 510 <= mouse[1] <= 510+100:
+                    if variableage < 100:
+                        if variableage == 19 and choix == "":
+                            print("erreur")
+                        if variableage == 19 and choix != "":
+                            variableage = variableage+1
+                            age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+                        elif variableage < 19 or variableage > 19:
+                            variableage = variableage+1
+                            age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+                    else:
+                        terminer= True
+                    while terminer:
+                        pygame.display.update()
+                        fenetretermine = pygame.display.set_mode((width,height))
+                        fenetretermine.fill(background_colour)
+                        mouse = pygame.mouse.get_pos()
+                        fenetretermine.blit(termine , (60,350))
+                        #On parcours la liste de tous les événements reçus
+                        for event in pygame.event.get():
+                            #Si un de ces événements est de type QUIT
+                            if event.type == QUIT:
+                                terminer = False
+                                fin = True
+                                pygame.display.quit()
+
                 # bouton retour
                 if 900 <= mouse[0] <= 900+200 and 600 <= mouse[1] <= 600+50:
                     sexe=0
