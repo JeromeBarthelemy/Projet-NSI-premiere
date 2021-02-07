@@ -59,7 +59,7 @@ listeprimaire=["Ecole primaire Guillaume Apollinaire","Ecole primaire Michel Ser
 listecollege=["Collège Chaptal","Collège Plaisance","Collège Jean Giono","Collège les Fontainettes","Collège Victor Hugo","Collège des Trois Vallées","Collège la Sablière","Collège Antoine de Saint-Exupéry","Collège Claude Nicolas le Doux","Collège Les Franchises"]
 listelycee=["Lycée Jean Rostand","Lycée Henri Vincenot","Lycée Camille Claudel","Lycée Pasteur","Lycée Gustave Eiffel","Lycée Voltaire","Lycée Parc des Loges","Lycée Martin Luther King","Lycée Honoré Romane","Lycée Jean Monnet"]
 listeuniversite=["Commerce","Ingénieur","Lettres","Arts","Politique","Sc.Sociales","Droit","Architecture","Médecine"]
-listemetiers=[]
+dicometiers=["Commerce1","Commerce2","Commerce3","Commerce4","Commerce5","Ingénieur1","Ingénieur2","Ingénieur3","Ingénieur4","Ingénieur5","Lettres1","Lettres2","Lettres3","Lettres4","Lettres5","Arts1","Arts2","Arts3","Arts4","Arts5","Politique1","Politique2","Politique3","Politique4","Politique5","Sc.Sociales1","Sc.Sociales2","Sc.Sociales3","Sc.Sociales4","Sc.Sociales5","Droit1","Droit2","Droit3","Droit4","Droit5","Architecture1","Architecture2","Architecture3","Architecture4","Architecture5","Médecine1","Médecine2","Médecine3","Médecine4","Médecine5"]
 
 def start_the_game():
     pygame.init()
@@ -146,6 +146,7 @@ def principal(sexe):
     nomuniversite8 = smallfont.render(listeuniversite[7] , True , color)
     nomuniversite9 = smallfont.render(listeuniversite[8] , True , color)
     specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
+
 
     # texte propriete
     propriete = smallfont.render('Propriété' , True , color)
@@ -334,7 +335,75 @@ def principal(sexe):
 
                         # metiers
                         if variableage == 24:
-                            fenetreedu.blit(specialite , (100,200))
+                            # variables vides
+                            option1 = ""
+                            option2 = ""
+                            option3 = ""
+                            option4 = ""
+                            option5 = ""
+
+                            # detection du choix de spe fait avant
+                            if choix == listeuniversite[0]:
+                                option1 = smallfont.render(dicometiers[0] , True , color)
+                                option2 = smallfont.render(dicometiers[1] , True , color)
+                                option3 = smallfont.render(dicometiers[2] , True , color)
+                                option4 = smallfont.render(dicometiers[3] , True , color)
+                                option5 = smallfont.render(dicometiers[4] , True , color)
+                            if choix == listeuniversite[1]:
+                                option1 = smallfont.render(dicometiers[5] , True , color)
+                                option2 = smallfont.render(dicometiers[6] , True , color)
+                                option3 = smallfont.render(dicometiers[7] , True , color)
+                                option4 = smallfont.render(dicometiers[8] , True , color)
+                                option5 = smallfont.render(dicometiers[9] , True , color)
+                            if choix == listeuniversite[2]:
+                                option1 = smallfont.render(dicometiers[10] , True , color)
+                                option2 = smallfont.render(dicometiers[11] , True , color)
+                                option3 = smallfont.render(dicometiers[12] , True , color)
+                                option4 = smallfont.render(dicometiers[13] , True , color)
+                                option5 = smallfont.render(dicometiers[14] , True , color)
+                            if choix == listeuniversite[3]:
+                                option1 = smallfont.render(dicometiers[15] , True , color)
+                                option2 = smallfont.render(dicometiers[16] , True , color)
+                                option3 = smallfont.render(dicometiers[17] , True , color)
+                                option4 = smallfont.render(dicometiers[18] , True , color)
+                                option5 = smallfont.render(dicometiers[19] , True , color)
+                            if choix == listeuniversite[4]:
+                                option1 = smallfont.render(dicometiers[20] , True , color)
+                                option2 = smallfont.render(dicometiers[21] , True , color)
+                                option3 = smallfont.render(dicometiers[22] , True , color)
+                                option4 = smallfont.render(dicometiers[23] , True , color)
+                                option5 = smallfont.render(dicometiers[24] , True , color)
+                            if choix == listeuniversite[5]:
+                                option1 = smallfont.render(dicometiers[25] , True , color)
+                                option2 = smallfont.render(dicometiers[26] , True , color)
+                                option3 = smallfont.render(dicometiers[27] , True , color)
+                                option4 = smallfont.render(dicometiers[28] , True , color)
+                                option5 = smallfont.render(dicometiers[29] , True , color)
+                            if choix == listeuniversite[6]:
+                                option1 = smallfont.render(dicometiers[30] , True , color)
+                                option2 = smallfont.render(dicometiers[31] , True , color)
+                                option3 = smallfont.render(dicometiers[32] , True , color)
+                                option4 = smallfont.render(dicometiers[33] , True , color)
+                                option5 = smallfont.render(dicometiers[34] , True , color)
+                            if choix == listeuniversite[7]:
+                                option1 = smallfont.render(dicometiers[35] , True , color)
+                                option2 = smallfont.render(dicometiers[36] , True , color)
+                                option3 = smallfont.render(dicometiers[37] , True , color)
+                                option4 = smallfont.render(dicometiers[38] , True , color)
+                                option5 = smallfont.render(dicometiers[39] , True , color)
+                            if choix == listeuniversite[8]:
+                                option1 = smallfont.render(dicometiers[40] , True , color)
+                                option2 = smallfont.render(dicometiers[41] , True , color)
+                                option3 = smallfont.render(dicometiers[42] , True , color)
+                                option4 = smallfont.render(dicometiers[43] , True , color)
+                                option5 = smallfont.render(dicometiers[44] , True , color)
+
+                            # affichage du choix de metiers
+                            fenetreedu.blit(option1 , (800,250))
+                            fenetreedu.blit(option2 , (800,350))
+                            fenetreedu.blit(option3 , (800,450))
+                            fenetreedu.blit(option4 , (800,550))
+                            fenetreedu.blit(option5 , (800,650))
 
 
 
