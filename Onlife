@@ -204,42 +204,43 @@ def principal(sexe):
                                 if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
                                     pygame.display.update()
                                     edu=False
-                                if 150 <= mouse[0] <= 150+250 and 350 <= mouse[1] <= 350+60:
-                                    choix = listeuniversite[0]
-                                    nomduchoix = smallfont.render(choix , True , color)
-                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
-                                if 450 <= mouse[0] <= 450+250 and 350 <= mouse[1] <= 350+60:
-                                    choix = listeuniversite[1]
-                                    nomduchoix = smallfont.render(choix , True , color)
-                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
-                                if 750 <= mouse[0] <= 750+250 and 350 <= mouse[1] <= 350+60:
-                                    choix = listeuniversite[2]
-                                    nomduchoix = smallfont.render(choix , True , color)
-                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
-                                if 150 <= mouse[0] <= 150+250 and 500 <= mouse[1] <= 500+60:
-                                    choix = listeuniversite[3]
-                                    nomduchoix = smallfont.render(choix , True , color)
-                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
-                                if 450 <= mouse[0] <= 450+250 and 500 <= mouse[1] <= 500+60:
-                                    choix = listeuniversite[4]
-                                    nomduchoix = smallfont.render(choix , True , color)
-                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
-                                if 750 <= mouse[0] <= 750+250 and 500 <= mouse[1] <= 500+60:
-                                    choix = listeuniversite[5]
-                                    nomduchoix = smallfont.render(choix , True , color)
-                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
-                                if 150 <= mouse[0] <= 150+250 and 650 <= mouse[1] <= 650+60:
-                                    choix = listeuniversite[6]
-                                    nomduchoix = smallfont.render(choix , True , color)
-                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
-                                if 450 <= mouse[0] <= 450+250 and 650 <= mouse[1] <= 650+60:
-                                    choix = listeuniversite[7]
-                                    nomduchoix = smallfont.render(choix , True , color)
-                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
-                                if 750 <= mouse[0] <= 750+250 and 650 <= mouse[1] <= 650+60:
-                                    choix = listeuniversite[8]
-                                    nomduchoix = smallfont.render(choix , True , color)
-                                    specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
+                                if variableage == 19:
+                                    if 150 <= mouse[0] <= 150+250 and 350 <= mouse[1] <= 350+60:
+                                        choix = listeuniversite[0]
+                                        nomduchoix = smallfont.render(choix , True , color)
+                                        specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
+                                    if 450 <= mouse[0] <= 450+250 and 350 <= mouse[1] <= 350+60:
+                                        choix = listeuniversite[1]
+                                        nomduchoix = smallfont.render(choix , True , color)
+                                        specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
+                                    if 750 <= mouse[0] <= 750+250 and 350 <= mouse[1] <= 350+60:
+                                        choix = listeuniversite[2]
+                                        nomduchoix = smallfont.render(choix , True , color)
+                                        specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
+                                    if 150 <= mouse[0] <= 150+250 and 500 <= mouse[1] <= 500+60:
+                                        choix = listeuniversite[3]
+                                        nomduchoix = smallfont.render(choix , True , color)
+                                        specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
+                                    if 450 <= mouse[0] <= 450+250 and 500 <= mouse[1] <= 500+60:
+                                        choix = listeuniversite[4]
+                                        nomduchoix = smallfont.render(choix , True , color)
+                                        specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
+                                    if 750 <= mouse[0] <= 750+250 and 500 <= mouse[1] <= 500+60:
+                                        choix = listeuniversite[5]
+                                        nomduchoix = smallfont.render(choix , True , color)
+                                        specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
+                                    if 150 <= mouse[0] <= 150+250 and 650 <= mouse[1] <= 650+60:
+                                        choix = listeuniversite[6]
+                                        nomduchoix = smallfont.render(choix , True , color)
+                                        specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
+                                    if 450 <= mouse[0] <= 450+250 and 650 <= mouse[1] <= 650+60:
+                                        choix = listeuniversite[7]
+                                        nomduchoix = smallfont.render(choix , True , color)
+                                        specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
+                                    if 750 <= mouse[0] <= 750+250 and 650 <= mouse[1] <= 650+60:
+                                        choix = listeuniversite[8]
+                                        nomduchoix = smallfont.render(choix , True , color)
+                                        specialite = smallfont.render("Spécialité:"+"  "+ choix , True , color)
 
                         #bouton retour
                         if 50 <= mouse[0] <= 125+50 and 50 <= mouse[1] <= 50+50:
@@ -360,6 +361,27 @@ def principal(sexe):
                             fenetreedu.blit(option4 , (800,550))
                             fenetreedu.blit(option5 , (800,650))
 
+                            # boutons pour selectionner
+                            if 710 <= mouse[0] <= 710+30 and 262 <= mouse[1] <= 262+30:
+                                pygame.draw.rect(fenetreedu,color_bred,[710,262,30,30])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_dred,[710,262,30,30])
+                            if 710 <= mouse[0] <= 710+30 and 362 <= mouse[1] <= 362+30:
+                                pygame.draw.rect(fenetreedu,color_bred,[710,362,30,30])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_dred,[710,362,30,30])
+                            if 710 <= mouse[0] <= 710+30 and 462 <= mouse[1] <= 462+30:
+                                pygame.draw.rect(fenetreedu,color_bred,[710,462,30,30])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_dred,[710,462,30,30])
+                            if 710 <= mouse[0] <= 710+30 and 562 <= mouse[1] <= 562+30:
+                                pygame.draw.rect(fenetreedu,color_bred,[710,562,30,30])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_dred,[710,562,30,30])
+                            if 710 <= mouse[0] <= 710+30 and 662 <= mouse[1] <= 662+30:
+                                pygame.draw.rect(fenetreedu,color_bred,[710,662,30,30])
+                            else:
+                                pygame.draw.rect(fenetreedu,color_dred,[710,662,30,30])
 
 
                 # ouverture page propriete
