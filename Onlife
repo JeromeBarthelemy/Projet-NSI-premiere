@@ -106,6 +106,7 @@ def principal(sexe):
     # couleurs
     color_light = (170,170,170)
     color_dark = (100,100,100)
+    color_red = (249,113,113)
     color_dred = (220,20,60)
     color_bred = (207,69,96)
 
@@ -154,7 +155,7 @@ def principal(sexe):
     proprietebig = bigfont.render('Propriété' , True , color)
     domicile = smallfont.render('Domicile:' , True , color)
     transport = smallfont.render('Transport:' , True , color)
-    animal = smallfont.render('Animal de compagnie:' , True , color)
+    animal = smallfont.render('Animaux:' , True , color)
     # texte bien-etre
     bienetre = smallfont.render('Bien-être' , True , color)
 
@@ -408,6 +409,10 @@ def principal(sexe):
                             else:
                                 pygame.draw.rect(fenetreedu,color_dred,[710,662,30,30])
 
+                        if variableage > 24:
+                            fenetreedu.blit(nomdumetier , (100,200))
+
+
                 # ouverture page propriete
                 if 900 <= mouse[0] <= 900+200 and 400 <= mouse[1] <= 400+50:
                     prop=True
@@ -427,9 +432,12 @@ def principal(sexe):
                         fenetreprop.blit(proprietebig , (580,40))
                         # page
                         pygame.draw.rect(fenetreprop,color_dark,[50,165,1080,600])
-                        fenetreprop.blit(domicile , (75,200))
-                        fenetreprop.blit(transport , (75,300))
-                        fenetreprop.blit(animal , (75,400))
+                        pygame.draw.rect(fenetreprop,color_red,[80,190,326,550])
+                        pygame.draw.rect(fenetreprop,color_red,[427,190,326,550])
+                        pygame.draw.rect(fenetreprop,color_red,[774,190,326,550])
+                        fenetreprop.blit(domicile , (160,200))
+                        fenetreprop.blit(transport , (500,200))
+                        fenetreprop.blit(animal , (860,200))
 
 
                         for event in pygame.event.get():
