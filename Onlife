@@ -292,7 +292,7 @@ def principal(sexe):
                         # Titre de la page éducation qui varie en fonction de l'age
                         if  variableage > 2:
                             pygame.draw.rect(fenetreedu,color_dark,[230,25,900,100])
-                        elif 2 < variableage <= 18:
+                        if 2 < variableage <= 18:
                             fenetreedu.blit(enseignement , (510,40))
                         elif 18 < variableage <= 23:
                             fenetreedu.blit(etudes , (460,40))
