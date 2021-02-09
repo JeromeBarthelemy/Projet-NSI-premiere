@@ -512,13 +512,13 @@ def principal(sexe):
                         # Il ne peut pas avancer d'un an s'il n'a pas choisi de spécialité à 19 ans
                         if variableage == 19 and choix == "":
                             print("erreur")
-                        # Il ne peut pas avancer d'un an s'il n'a pas choisi de métier à 24 ans
-                        if variableage == 24 and choixmetier == "":
-                            print("erreur")
                         # Si une spécialité est choisie il peut avancer
                         if variableage == 19 and choix != "":
                             variableage = variableage+1
                             age = smallfont.render('Age:'+"  "+str(variableage) , True , color)
+                        # Il ne peut pas avancer d'un an s'il n'a pas choisi de métier à 24 ans
+                        if variableage == 24 and choixmetier == "":
+                            print("erreur")
                         # Si un métier est choisi il peut avancer
                         if variableage == 24 and choixmetier != "":
                             variableage = variableage+1
