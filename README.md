@@ -20,6 +20,8 @@ Les difficultés qu'il nous faut régler assez vite sont tout d'abord de trouver
 ### Quelles sont celles qu'on aura pas le temps de surmonter et qu'est-ce que cela implique comme évolution sur le projet final ?
 La seule chose qui pour l'instant sera impossible de faire c'est des barres de vie qui devaient consister à afficher le niveau d'intelligence, taux de bonheur etc. du personnage tout le long de sa vie. Pour l'instant nous avons décidé de le mettre de côté ce qui ne changera pas le principe du jeu. Nous devons également renoncer à offrir tous les choix que nous aurions voulu offrir (le choix de l'école, arrêter l'école en avance ou sauter des classes par exemple).
 
+### Rédiger 1 ou 2 paragraphes sur les principaux aspects techniques du projet (structure de données, modules de bibliothèque utilisés, interfaçage entre les différentes fonctions/fichiers, ...)
+
 ### Membres:
 <br>Aurélie Gallet
 <br>Clara Cuoghi
