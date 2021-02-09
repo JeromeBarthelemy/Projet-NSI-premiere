@@ -49,9 +49,13 @@ Rayane----- Code du menu et code de certains éléments
 
 ### A faire:
 Rechercher les donnees pour la fenetre education - en cours
+
 Incorporer les donnees - en cours
+
 Faire le mini jeu - en cours
+
 Page propriete - 
+
 Page bien etre - 
 
 ### Document de formation à Jupyter
